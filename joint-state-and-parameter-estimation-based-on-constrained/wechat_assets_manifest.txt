@@ -1,0 +1,9 @@
+corollary_1.png	__PUBLIC_IMAGE_PREFIX__/corollary_1.png
+definition_1.png	__PUBLIC_IMAGE_PREFIX__/definition_1.png
+figure_1.png	__PUBLIC_IMAGE_PREFIX__/figure_1.png
+figure_2.png	__PUBLIC_IMAGE_PREFIX__/figure_2.png
+figure_3.png	__PUBLIC_IMAGE_PREFIX__/figure_3.png
+header.png	__PUBLIC_IMAGE_PREFIX__/header.png
+joint_framework.png	__PUBLIC_IMAGE_PREFIX__/joint_framework.png
+proposition_1.png	__PUBLIC_IMAGE_PREFIX__/proposition_1.png
+theorem_1.png	__PUBLIC_IMAGE_PREFIX__/theorem_1.png

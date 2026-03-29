@@ -1,0 +1,10 @@
+algorithm_1.png	__PUBLIC_IMAGE_PREFIX__/algorithm_1.png
+figure_2.png	__PUBLIC_IMAGE_PREFIX__/figure_2.png
+figure_7.png	__PUBLIC_IMAGE_PREFIX__/figure_7.png
+figure_9.png	__PUBLIC_IMAGE_PREFIX__/figure_9.png
+header.png	__PUBLIC_IMAGE_PREFIX__/header.png
+lemma_1.png	__PUBLIC_IMAGE_PREFIX__/lemma_1.png
+proposition_2.png	__PUBLIC_IMAGE_PREFIX__/proposition_2.png
+proposition_3.png	__PUBLIC_IMAGE_PREFIX__/proposition_3.png
+proposition_4.png	__PUBLIC_IMAGE_PREFIX__/proposition_4.png
+system_model.png	__PUBLIC_IMAGE_PREFIX__/system_model.png

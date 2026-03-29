@@ -1,0 +1,12 @@
+corollary_1.png	__PUBLIC_IMAGE_PREFIX__/corollary_1.png
+definition_1.png	__PUBLIC_IMAGE_PREFIX__/definition_1.png
+figure_2.png	__PUBLIC_IMAGE_PREFIX__/figure_2.png
+figure_3.png	__PUBLIC_IMAGE_PREFIX__/figure_3.png
+figure_4.png	__PUBLIC_IMAGE_PREFIX__/figure_4.png
+figure_6.png	__PUBLIC_IMAGE_PREFIX__/figure_6.png
+figure_7.png	__PUBLIC_IMAGE_PREFIX__/figure_7.png
+header.png	__PUBLIC_IMAGE_PREFIX__/header.png
+system_model.png	__PUBLIC_IMAGE_PREFIX__/system_model.png
+theorem_1.png	__PUBLIC_IMAGE_PREFIX__/theorem_1.png
+theorem_2.png	__PUBLIC_IMAGE_PREFIX__/theorem_2.png
+theorem_3.png	__PUBLIC_IMAGE_PREFIX__/theorem_3.png
