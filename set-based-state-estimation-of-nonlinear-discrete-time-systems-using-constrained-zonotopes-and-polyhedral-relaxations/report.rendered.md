@@ -5,8 +5,12 @@
 - 关键词：受约束Zonotope；多面体松弛；factorable representation；非线性测量；集合值状态估计；可达性分析
 - DOI / 论文链接：https://arxiv.org/abs/2504.00130
 
+**系列时间线与本文位置：** 如果只看 Rego 关于 nonlinear discrete-time constrained-zonotope state estimation 的主线，那么顺序是：`2020 年 Automatica 基础保证性方法 -> 2021 年 Automatica 非线性不变量 -> 2022 年 Automatica 联合状态参数估计 -> 2025 年 3 月 31 日 arXiv 本文`。需要特别说明的是，目录里还有一篇 `2025 年 5 月 23 日在线发表的 Automatica《Line zonotopes》`，但那篇转向的是无界/描述符系统与故障诊断，更像从 2020 年工作分出的旁支；就这条 nonlinear estimation 主线而言，本文才是目前最新一步。
+
 ## 1. 研究背景、问题定义与核心思路
 ### 1.1 研究动机与关键挑战
+
+在主线里，本文就是当前最新一篇，因此它读起来最像一次“回头重做”。作者不再满足于 2020 和 2021 两篇中主要依赖均值定理、Taylor 线性化或一致性修正的做法，而是进一步追问：能不能直接在 factorable representation 上构造 lifted polyhedral relaxations，从源头减少整块非线性区域统一线性化带来的保守性？
 
 本文关注非线性离散时间系统的集合值状态估计问题。在这类问题中，难点并不只在于把上一时刻状态集合通过非线性动力学传播出去，更在于如何把**当前非线性测量方程**也纳入同一个保证型递推里，同时还要控制集合复杂度。
 
