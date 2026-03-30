@@ -1,6 +1,6 @@
 # 基于受约束Zonotope的非线性离散时间系统集合值状态估计保证性方法
 
-![论文抬头：标题与作者](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@f481fedf93d2e2510420e3ad3bb00c75869f3516/guaranteed-methods-based-on-constrained-zonotopes-for-set-valued-state-estimation-of-nonlinear-discrete-time-systems/images/header.png)
+![论文抬头：标题与作者](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@7173c9b13f17952780967b8a5c4ad3e6278fc07d/guaranteed-methods-based-on-constrained-zonotopes-for-set-valued-state-estimation-of-nonlinear-discrete-time-systems/images/header.png)
 
 - 关键词：受约束Zonotope；集合值状态估计；非线性离散时间系统；均值扩张；一阶Taylor扩张；可达集传播；广义交集
 - DOI / 论文链接：https://doi.org/10.1016/j.automatica.2019.108614
@@ -29,7 +29,7 @@ $$
 
 其中，$x_k \in \mathbb{R}^n$ 为系统状态，$u_k$ 为已知输入，$w_k$ 为过程扰动，$y_k$ 为测量输出，$v_k$ 为测量不确定性。文中假设 $f$ 属于 $C^2$ 类，且 $w_k \in W_k$、$v_k \in V_k$ 都满足有界集合约束。
 
-![图1：系统模型与问题定义](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@f481fedf93d2e2510420e3ad3bb00c75869f3516/guaranteed-methods-based-on-constrained-zonotopes-for-set-valued-state-estimation-of-nonlinear-discrete-time-systems/images/system_model.png)
+![图1：系统模型与问题定义](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@7173c9b13f17952780967b8a5c4ad3e6278fc07d/guaranteed-methods-based-on-constrained-zonotopes-for-set-valued-state-estimation-of-nonlinear-discrete-time-systems/images/system_model.png)
 
 对应的集合值递推目标是构造预测集 $\bar{X}_k$ 与更新集 $\hat{X}_k$，满足：
 
@@ -89,7 +89,7 @@ $$
 
 #### 技术块 A：Definition 1 给出受约束Zonotope 的基本表示
 
-![图2：Definition 1，受约束Zonotope定义](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@f481fedf93d2e2510420e3ad3bb00c75869f3516/guaranteed-methods-based-on-constrained-zonotopes-for-set-valued-state-estimation-of-nonlinear-discrete-time-systems/images/definition_1.png)
+![图2：Definition 1，受约束Zonotope定义](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@7173c9b13f17952780967b8a5c4ad3e6278fc07d/guaranteed-methods-based-on-constrained-zonotopes-for-set-valued-state-estimation-of-nonlinear-discrete-time-systems/images/definition_1.png)
 
 Definition 1 是全文最基础的几何对象定义。它说明受约束Zonotope 并非完全抛弃 zonotope，而是在 zonotope 的生成变量 $\omega$ 上加入等式约束。对本文而言，这一步的意义不只是“定义一个更复杂的集合”，而是把**普通 zonotope 的低成本生成元参数化**与**凸多面体的高表达能力**拼接到一起。
 
@@ -97,7 +97,7 @@ Definition 1 是全文最基础的几何对象定义。它说明受约束Zonotop
 
 #### 技术块 B：Theorem 1 构造 CZ-inclusion，是 Theorem 2 的直接支撑
 
-![图3：Theorem 1，CZ-inclusion](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@f481fedf93d2e2510420e3ad3bb00c75869f3516/guaranteed-methods-based-on-constrained-zonotopes-for-set-valued-state-estimation-of-nonlinear-discrete-time-systems/images/theorem_1.png)
+![图3：Theorem 1，CZ-inclusion](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@7173c9b13f17952780967b8a5c4ad3e6278fc07d/guaranteed-methods-based-on-constrained-zonotopes-for-set-valued-state-estimation-of-nonlinear-discrete-time-systems/images/theorem_1.png)
 
 Theorem 1 解决的问题是：当一个**区间矩阵** $J$ 作用在一个受约束Zonotope $X$ 上时，如何得到一个仍然是受约束Zonotope 的可靠外包络。它给出的结构是
 
@@ -111,7 +111,7 @@ $$
 
 #### 技术块 C：Theorem 2 给出基于均值定理的受约束Zonotope 扩张
 
-![图4：Theorem 2，均值扩张](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@f481fedf93d2e2510420e3ad3bb00c75869f3516/guaranteed-methods-based-on-constrained-zonotopes-for-set-valued-state-estimation-of-nonlinear-discrete-time-systems/images/theorem_2.png)
+![图4：Theorem 2，均值扩张](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@7173c9b13f17952780967b8a5c4ad3e6278fc07d/guaranteed-methods-based-on-constrained-zonotopes-for-set-valued-state-estimation-of-nonlinear-discrete-time-systems/images/theorem_2.png)
 
 Theorem 2 是本文的第一条主结果。它把非线性映射 $\mu(X, W)$ 的外包络写成
 
@@ -131,7 +131,7 @@ $$
 
 #### 技术块 D：Corollary 1 通过选点 $h$ 直接压缩 Theorem 2 的保守性
 
-![图5：Corollary 1，均值扩张的紧化选点规则](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@f481fedf93d2e2510420e3ad3bb00c75869f3516/guaranteed-methods-based-on-constrained-zonotopes-for-set-valued-state-estimation-of-nonlinear-discrete-time-systems/images/corollary_1.png)
+![图5：Corollary 1，均值扩张的紧化选点规则](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@7173c9b13f17952780967b8a5c4ad3e6278fc07d/guaranteed-methods-based-on-constrained-zonotopes-for-set-valued-state-estimation-of-nonlinear-discrete-time-systems/images/corollary_1.png)
 
 Corollary 1 讨论的是一个非常实际的问题：Theorem 2 中参考点 $h \in X$ 该怎么选。作者分析了 iterated constraint elimination 之后的中心项 $c^{(0)}$，并指出如果选择
 
@@ -145,7 +145,7 @@ $$
 
 #### 技术块 E：Theorem 3 给出一阶 Taylor 扩张及二阶余项的严格受约束Zonotope 封装
 
-![图6：Theorem 3，一阶Taylor扩张](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@f481fedf93d2e2510420e3ad3bb00c75869f3516/guaranteed-methods-based-on-constrained-zonotopes-for-set-valued-state-estimation-of-nonlinear-discrete-time-systems/images/theorem_3.png)
+![图6：Theorem 3，一阶Taylor扩张](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@7173c9b13f17952780967b8a5c4ad3e6278fc07d/guaranteed-methods-based-on-constrained-zonotopes-for-set-valued-state-estimation-of-nonlinear-discrete-time-systems/images/theorem_3.png)
 
 Theorem 3 是第二条主结果。与 Theorem 2 不同，它不再只用一阶导数区间，而是从一阶 Taylor 展开出发，把二阶余项通过 Hessian 区间界和生成元二次型封装成一个新的 remainder set $R$，从而得到
 
@@ -182,19 +182,19 @@ $$
 
 #### 证据块 A：Fig. 2 直接展示 update 交集的几何优势
 
-![图7：Fig. 2，初始更新步中的交集效果](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@f481fedf93d2e2510420e3ad3bb00c75869f3516/guaranteed-methods-based-on-constrained-zonotopes-for-set-valued-state-estimation-of-nonlinear-discrete-time-systems/images/figure_2.png)
+![图7：Fig. 2，初始更新步中的交集效果](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@7173c9b13f17952780967b8a5c4ad3e6278fc07d/guaranteed-methods-based-on-constrained-zonotopes-for-set-valued-state-estimation-of-nonlinear-discrete-time-systems/images/figure_2.png)
 
 Fig. 2 展示了初始集合 $X_0$、不确定测量条带以及更新后的交集结果。作者比较了 Bravo 等人方法得到的 zonotope 交集外近似与式 (22) 生成的 constrained zonotope 交集。结论非常明确：由于广义交集后的集合不再保持中心对称，普通 zonotope 无法精确表示该几何对象，而 constrained zonotope 可以直接给出精确交集。这个图实际上是全文最强的 Zonotope 证据之一，因为它把“普通 zonotope 更新保守”这一点从代数层面落实到了几何层面。
 
 #### 证据块 B：Fig. 3 显示前四步状态估计包络明显收紧
 
-![图8：Fig. 3，前四个时刻的集合估计对比](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@f481fedf93d2e2510420e3ad3bb00c75869f3516/guaranteed-methods-based-on-constrained-zonotopes-for-set-valued-state-estimation-of-nonlinear-discrete-time-systems/images/figure_3.png)
+![图8：Fig. 3，前四个时刻的集合估计对比](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@7173c9b13f17952780967b8a5c4ad3e6278fc07d/guaranteed-methods-based-on-constrained-zonotopes-for-set-valued-state-estimation-of-nonlinear-discrete-time-systems/images/figure_3.png)
 
 Fig. 3 比较了无过程扰动场景下 CZMV 与 ZMV 在前四个时刻的 update 后集合。黑点表示满足当前测量的一致样本轨迹。可以看到，CZMV 生成的集合更贴近样本轨迹外缘，而 ZMV 包络更松。这个结果说明 Theorem 2 带来的收益并不只体现在单步可达集传播上，而是能在递推估计中持续保留。对集合估计问题而言，这种“多步之后仍能维持紧包络”的能力比单步漂亮图更重要。
 
 #### 证据块 C：Fig. 4 用 ARR 量化了 constrained zonotope 相对普通 zonotope 的保守性下降
 
-![图9：Fig. 4，二维案例中的半径比较](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@f481fedf93d2e2510420e3ad3bb00c75869f3516/guaranteed-methods-based-on-constrained-zonotopes-for-set-valued-state-estimation-of-nonlinear-discrete-time-systems/images/figure_4.png)
+![图9：Fig. 4，二维案例中的半径比较](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@7173c9b13f17952780967b8a5c4ad3e6278fc07d/guaranteed-methods-based-on-constrained-zonotopes-for-set-valued-state-estimation-of-nonlinear-discrete-time-systems/images/figure_4.png)
 
 Fig. 4 给出二维系统在 100 个时刻上的 update 集半径比较。论文报告：
 
@@ -206,7 +206,7 @@ Fig. 4 给出二维系统在 100 个时刻上的 update 集半径比较。论文
 
 #### 证据块 D：Fig. 6 说明方法在 12 维四旋翼系统上仍保持优势
 
-![图10：Fig. 6，四旋翼系统中的半径比较](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@f481fedf93d2e2510420e3ad3bb00c75869f3516/guaranteed-methods-based-on-constrained-zonotopes-for-set-valued-state-estimation-of-nonlinear-discrete-time-systems/images/figure_6.png)
+![图10：Fig. 6，四旋翼系统中的半径比较](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@7173c9b13f17952780967b8a5c4ad3e6278fc07d/guaranteed-methods-based-on-constrained-zonotopes-for-set-valued-state-estimation-of-nonlinear-discrete-time-systems/images/figure_6.png)
 
 第二个例子把系统扩展到 12 维四旋翼 UAV。Fig. 6 比较 CZMV 与 ZMV 的 update 集半径。论文给出的结论是，尽管两者都能为高维非线性状态提供有界外包络，但 CZMV 的保守性仍明显更低，其相对 ZMV 的 ARR 约为 **74.41%**。这个数字没有二维算例中那样激进，但它在高维系统中更有说服力，因为高维情况下集合复杂度、非线性耦合和降阶误差都更难控制。
 
@@ -214,7 +214,7 @@ Fig. 4 给出二维系统在 100 个时刻上的 update 集半径比较。论文
 
 #### 证据块 E：Fig. 7 表明 CZFO 在高维场景下同样优于 ZFO
 
-![图11：Fig. 7，四旋翼系统中 CZFO 与 ZFO 的比较](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@f481fedf93d2e2510420e3ad3bb00c75869f3516/guaranteed-methods-based-on-constrained-zonotopes-for-set-valued-state-estimation-of-nonlinear-discrete-time-systems/images/figure_7.png)
+![图11：Fig. 7，四旋翼系统中 CZFO 与 ZFO 的比较](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@7173c9b13f17952780967b8a5c4ad3e6278fc07d/guaranteed-methods-based-on-constrained-zonotopes-for-set-valued-state-estimation-of-nonlinear-discrete-time-systems/images/figure_7.png)
 
 Fig. 7 给出四旋翼场景下 CZFO 与 ZFO 的 update 集半径对比。作者报告 CZFO 相对 ZFO 的 ARR 约为 **74.45%**，而 CZMV 与 CZFO 的 ARR 约为 **99.93%**。这意味着在该案例中，两种 constrained-zonotope 方法的最终精度几乎重合；真正拉开差距的仍然是 constrained zonotope 与普通 zonotope 之间在集合表达能力上的差别。
 
