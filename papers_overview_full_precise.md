@@ -6,8 +6,8 @@
 
 ## 1. A novel dual-time-scale zonotopic Kalman filter integrated with optimizable convolutional long short-term memory for enhanced state of charge estimation in batteries of electric vehicles
 - **中文翻译标题**：一种与可优化卷积长短期记忆网络集成的新型双时间尺度 zonotopic Kalman 滤波器及其在电动汽车电池荷电状态估计中的应用
-- **作者**：待从原 PDF 首页核对
-- **学校**：待从原 PDF 首页核对
+- **作者**：Xin-Chen Zhou；Zi-Yun Wang；Yan Wang；Zhe-Kang Dong
+- **学校**：江南大学（物联网技术与应用教育部工程研究中心）；杭州电子科技大学（电子信息学院）
 - **主要贡献点（精确版）**：
   1. 将 **双时间尺度 zonotopic Kalman filter** 与 **可优化卷积 LSTM** 结合，用于电动汽车锂电池 SOC 估计。
   2. 在未知但有界噪声（unknown-but-bounded noise）背景下，用 zonotopic 集合传播提升 SOC 估计的鲁棒性与可解释性。
@@ -15,8 +15,8 @@
 
 ## 2. A novel zonotopic Kalman filter-based actuator fault detection for time delay systems
 - **中文翻译标题**：一种基于 zonotopic Kalman 滤波器的时滞系统执行器故障检测方法
-- **作者**：待从原 PDF 首页核对
-- **学校**：待从原 PDF 首页核对
+- **作者**：Yu-Qing Ma；Zi-Yun Wang；Yan Wang；Ju H. Park；Zhi-Cheng Ji
+- **学校**：江南大学（物联网技术与应用教育部工程研究中心）；韩国岭南大学（电气工程系）
 - **主要贡献点（精确版）**：
   1. 面向 **线性离散时滞系统**，提出了基于 **zonotopic Kalman filter** 的执行器故障检测算法（Z-KF-AFD）。
   2. 通过 zonotope 表达状态、残差或故障相关不确定集合，使故障检测不再依赖单点残差，而是依赖集合包络下的可分离性判别。
@@ -24,8 +24,8 @@
 
 ## 3. A Zonotope-based Big Data-driven Predictive Control Approach for Nonlinear Processes
 - **中文翻译标题**：一种面向非线性过程的基于 zonotope 的大数据驱动预测控制方法
-- **作者**：待从原 PDF 首页核对
-- **学校**：待从原 PDF 首页核对
+- **作者**：Shuangyu Han；Yitao Yan；Jie Bao；Biao Huang
+- **学校**：新南威尔士大学（化学工程学院）；阿尔伯塔大学（化学与材料工程系）
 - **主要贡献点（精确版）**：
   1. 提出一种 **zonotope-based big data-driven predictive control (BDPC)** 方法，用于非线性过程控制。
   2. 使用两步层次聚类（欧氏距离聚类 + 线性子空间距离聚类）将非线性过程行为划分为多个线性子行为，从而构造适合在线优化的预测模型。
@@ -33,8 +33,8 @@
 
 ## 4. Coloring zonotopal quadrangulations of the projective space
 - **中文翻译标题**：射影空间中 zonotopal 四边形剖分的着色问题
-- **作者**：待从原 PDF 首页核对
-- **学校**：待从原 PDF 首页核对
+- **作者**：Masahiro Hachimori；Atsuhiro Nakamoto；Kenta Ozeki
+- **学校**：筑波大学（工程、信息与系统学院）；横滨国立大学（环境与信息科学学院）
 - **主要贡献点（精确版）**：
   1. 研究射影空间中 **zonotopal quadrangulations** 的着色性质，属于 zonotope 的组合与离散几何方向。
   2. 给出相应结构性定理（当前报告中突出的是 **Theorem 6**），用于说明这类 zonotopal 结构的可着色规律或可构造性质。
@@ -42,8 +42,8 @@
 
 ## 5. Efficient zonotope reduction via hyperplane zonotopic contractors for uncertainty representation
 - **中文翻译标题**：基于超平面 zonotopic contractor 的高效 zonotope 降阶方法
-- **作者**：待从原 PDF 首页核对
-- **学校**：待从原 PDF 首页核对
+- **作者**：Rahma BENGAMRA；Soheib FERGANI；Carine JAUBERTHIE
+- **学校**：法国图卢兹大学 / 法国国家科学研究中心自动化与系统分析实验室（LAAS-CNRS）
 - **主要贡献点（精确版）**：
   1. 面向不确定性表示中的计算复杂度问题，提出一种新的 **zonotope reduction** 方法。
   2. 利用 **hyperplane zonotopic contractors** 来改善传统 zonotope 降阶中“计算效率 vs 表达精度”的权衡。
@@ -51,8 +51,8 @@
 
 ## 6. Ellipsoid-density-based set-membership global estimation for complex networked systems with absolute and relative measurements
 - **中文翻译标题**：面向绝对测量与相对测量复杂网络系统的基于椭球密度的集员全局估计
-- **作者**：待从原 PDF 首页核对
-- **学校**：待从原 PDF 首页核对
+- **作者**：Mingyang Luo；Yilian Zhang；Huaicheng Yan；Fuwen Yang
+- **学校**：上海海事大学（交通运输行业海洋技术与控制工程重点实验室）；华东理工大学（化工过程先进控制与优化教育部重点实验室）；格里菲斯大学（工程与建筑环境学院）
 - **主要贡献点（精确版）**：
   1. 研究复杂网络系统在 **unknown-but-bounded** 过程噪声与测量噪声下的全局状态估计问题。
   2. 同时处理 **绝对测量** 与 **相对测量** 信息，提升网络化系统中分布式 / 全局估计的表达能力。
@@ -60,8 +60,8 @@
 
 ## 7. Fault detection based on an improved zonotopic Kalman filter with application to a wind turbine drivetrain
 - **中文翻译标题**：基于改进 zonotopic Kalman 滤波器的故障检测及其在风力机传动链中的应用
-- **作者**：待从原 PDF 首页核对
-- **学校**：待从原 PDF 首页核对
+- **作者**：Lanshuang Zhang；Zhenhua Wang；Vicenç Puig；Yi Shen
+- **学校**：哈尔滨工业大学（控制科学与工程系）；加泰罗尼亚理工大学（自动控制系）
 - **主要贡献点（精确版）**：
   1. 针对含参数不确定性的离散时间系统，提出一种 **改进的 zonotopic Kalman filter (ZKF)** 故障检测方法。
   2. 将该方法应用到 **风力机传动链** 场景中，用于传感器或系统故障检测。
@@ -69,8 +69,8 @@
 
 ## 8. Fault-tolerant control and zonotopic interval estimation for discrete-time linear systems based on an event-triggered mechanism
 - **中文翻译标题**：基于事件触发机制的离散时间线性系统容错控制与 zonotopic 区间估计
-- **作者**：待从原 PDF 首页核对
-- **学校**：待从原 PDF 首页核对
+- **作者**：Mingliang Tian；Zhihua Guo；Xiangqing Niu；Ben Niu；Chenguang Ning；Wenqi Zhou
+- **学校**：山东师范大学（信息科学与工程学院）；江南大学（物联网工程学院）；东南大学（移动通信国家重点实验室）
 - **主要贡献点（精确版）**：
   1. 面向存在未知但有界扰动与测量噪声的离散时间线性系统，联合研究 **容错控制（fault-tolerant control）** 与 **zonotopic interval estimation**。
   2. 将 **事件触发机制（event-triggered mechanism）** 引入估计与控制框架，以降低通信 / 更新频率并保持闭环性能。
@@ -78,8 +78,8 @@
 
 ## 9. Improved set-membership-filtering-based state estimation for target localization system
 - **中文翻译标题**：面向目标定位系统的改进集员滤波状态估计方法
-- **作者**：待从原 PDF 首页核对
-- **学校**：待从原 PDF 首页核对
+- **作者**：Xinyong Zhang；Jiongqi Wang；Haiyin Zhou；Bowen Hou
+- **学校**：国防科技大学
 - **主要贡献点（精确版）**：
   1. 研究当噪声统计模型未知、但噪声边界已知时，目标定位系统中的 **set-membership filtering** 状态估计问题。
   2. 提出改进型集员滤波方法，以提升目标定位中的状态估计精度与鲁棒性。
@@ -87,8 +87,8 @@
 
 ## 10. Robust fault detection method based on interval neural networks optimized by ellipsoid bundles
 - **中文翻译标题**：基于椭球束优化区间神经网络的鲁棒故障检测方法
-- **作者**：待从原 PDF 首页核对
-- **学校**：待从原 PDF 首页核对
+- **作者**：Meng Zhou；Yinyue Zhang；Jing Wang；Tarek Raïssi；Vicenç Puig
+- **学校**：北方工业大学（电气与控制工程学院）；法国国立工艺学院（CNAM Cedric-Laetitia 实验室）；加泰罗尼亚理工大学（机器人研究所 / 高级控制系统研究组）
 - **主要贡献点（精确版）**：
   1. 提出一种面向数据驱动系统的 **区间预测神经网络模型**，并使用 **椭球束（ellipsoid bundles）** 对其进行优化。
   2. 该方法面向存在未知但有界噪声与扰动的场景，用于实现鲁棒故障检测。
@@ -96,8 +96,8 @@
 
 ## 11. Robust tube-based economic model predictive control of nonlinear systems using linear parameter varying approach
 - **中文翻译标题**：基于线性参数变化方法的非线性系统鲁棒管状经济模型预测控制
-- **作者**：待从原 PDF 首页核对
-- **学校**：待从原 PDF 首页核对
+- **作者**：Heithem Boufrioua；Boubekeur Boukhezzar；Vicenç Puig
+- **学校**：阿尔及利亚康斯坦丁第一兄弟门图里大学（理学院与技术学院电子系，LARC 实验室）；加泰罗尼亚理工大学（机器人与工业信息研究所 / 监督、安全与自动控制研究中心）
 - **主要贡献点（精确版）**：
   1. 将 **线性参数变化（LPV）方法** 引入非线性系统的 **鲁棒 tube-based economic MPC** 设计中。
   2. 使用 zonotope 表达鲁棒管状边界与约束收缩集合，使经济优化目标与鲁棒可行性统一在同一优化框架中。
@@ -105,8 +105,8 @@
 
 ## 12. Set-membership estimation for nonlinear systems based on zonotope analysis
 - **中文翻译标题**：基于 zonotope 分析的非线性系统集员估计
-- **作者**：待从原 PDF 首页核对
-- **学校**：待从原 PDF 首页核对
+- **作者**：Hao Yang；Huaicheng Yan；Zhichen Li；Meng Wang；Fuwen Yang
+- **学校**：华东理工大学（能源化工过程智能制造教育部重点实验室）；潍坊学院（机械与自动化学院）；格里菲斯大学（工程与建筑环境学院）
 - **主要贡献点（精确版）**：
   1. 研究非线性系统中的 **zonotopic set-membership state estimation (SMSE)** 问题。
   2. 将 zonotope 作为核心集合表达工具，用于构造始终包含真实状态的有界估计集合。
@@ -114,8 +114,8 @@
 
 ## 13. Zonotope-based attack detection for cyber-physical systems with a dynamic event-triggered scheme
 - **中文翻译标题**：具有动态事件触发机制的网络物理系统基于 zonotope 的攻击检测
-- **作者**：待从原 PDF 首页核对
-- **学校**：待从原 PDF 首页核对
+- **作者**：Jianing Hu；Zhihua Guo；Ben Niu；Xudong Zhao；Zhenhua Wang；Wenqi Zhou
+- **学校**：山东师范大学（信息科学与工程学院）；大连理工大学（控制科学与工程学院）；东南大学（移动通信国家重点实验室）
 - **主要贡献点（精确版）**：
   1. 研究线性离散时间 **网络物理系统（CPS）** 在未知但有界外部扰动与测量噪声下的攻击检测问题。
   2. 将 **动态事件触发机制** 与 zonotope 集合传播结合，在降低通信负担的同时保持攻击检测能力。
@@ -123,8 +123,8 @@
 
 ## 14. Zonotopic distributed fusion for 2-D nonlinear systems under binary encoding schemes: An outlier-resistant approach
 - **中文翻译标题**：二值编码方案下二维非线性系统的 zonotopic 分布式融合：一种抗离群值方法
-- **作者**：待从原 PDF 首页核对
-- **学校**：待从原 PDF 首页核对
+- **作者**：Lan Lan；Guoliang Wei
+- **学校**：上海理工大学（理学院）；上海理工大学（商学院）
 - **主要贡献点（精确版）**：
   1. 面向带 **unknown-but-bounded 噪声**、测量离群值和带宽限制的传感网络，研究二维非线性系统的 **zonotopic distributed fusion**。
   2. 在 **binary encoding / dynamic quantization** 背景下，实现对二维非线性系统的分布式融合估计。
@@ -132,8 +132,8 @@
 
 ## 15. Zonotopic fault detection observer design for discrete-time Lipschitz nonlinear systems
 - **中文翻译标题**：离散时间 Lipschitz 非线性系统的 zonotopic 故障检测观测器设计
-- **作者**：待从原 PDF 首页核对
-- **学校**：待从原 PDF 首页核对
+- **作者**：Lanshuang Zhang；Zhenhua Wang；Vicenç Puig；Yi Shen
+- **学校**：哈尔滨工业大学（控制科学与工程系）；加泰罗尼亚理工大学（自动控制系）
 - **主要贡献点（精确版）**：
   1. 针对离散时间 **Lipschitz 非线性系统**，提出一种基于 zonotope 的故障检测观测器设计方法。
   2. 将残差生成与残差评估统一到 zonotopic 分析框架中，以增强对未知有界扰动和建模误差的鲁棒性。
@@ -141,8 +141,8 @@
 
 ## 16. Zonotopic set-membership state estimation for linear repetitive processes with multirate measurements under encoding-decoding mechanisms
 - **中文翻译标题**：编码解码机制下具有多速率测量的线性重复过程 zonotopic 集员状态估计
-- **作者**：待从原 PDF 首页核对
-- **学校**：待从原 PDF 首页核对
+- **作者**：Qi Li；Minghao Gao；Yufei Liu；Hongjian Liu
+- **学校**：杭州师范大学（信息科学与技术学院）；东北石油大学（人工智能能源研究院）；安徽工程大学（电气工程学院；教育部高端装备先进感知与智能控制重点实验室；数理与金融学院）
 - **主要贡献点（精确版）**：
   1. 面向带 **多速率测量** 的参数变化线性重复过程，研究 **coding-decoding-based fusion estimation** 问题。
   2. 在编码—解码通信机制下，引入 **zonotopic set-membership estimation** 来处理有界噪声和不同采样率传感器带来的融合估计问题。
@@ -150,8 +150,8 @@
 
 ## 17. Zonotopic set-membership state estimation for nonlinear systems based on the deep Koopman operator
 - **中文翻译标题**：基于深度 Koopman 算子的非线性系统 zonotopic 集员状态估计
-- **作者**：待从原 PDF 首页核对
-- **学校**：待从原 PDF 首页核对
+- **作者**：Zhichao Pan；Siyu Liu；Biao Huang；Fei Liu
+- **学校**：浙江师范大学（计算机科学与技术学院；工学院）；阿尔伯塔大学（化学与材料工程系）；江南大学（轻工过程先进控制教育部重点实验室 / 自动化研究所）
 - **主要贡献点（精确版）**：
   1. 将 **deep Koopman operator** 引入非线性系统的 zonotopic set-membership state estimation 中。
   2. 在深度 Koopman 提供的近似线性提升空间里进行 zonotope 集合递推，从而兼顾非线性建模能力与集合估计可计算性。
@@ -159,8 +159,8 @@
 
 ## 18. Zonotopic state estimation and fault detection for discrete-time linear systems under DoS attacks: A switching controller design mechanism
 - **中文翻译标题**：DoS 攻击下离散时间线性系统的 zonotopic 状态估计与故障检测：一种切换控制器设计机制
-- **作者**：待从原 PDF 首页核对
-- **学校**：待从原 PDF 首页核对
+- **作者**：Zhihua Guo；Xinjun Wang；Mingliang Tian；Jianing Hu
+- **学校**：山东师范大学（计算机科学与人工智能学院）
 - **主要贡献点（精确版）**：
   1. 针对存在 **非周期 DoS（denial-of-service）攻击** 的离散时间线性系统，研究 zonotopic 集员状态估计与故障检测问题。
   2. 在未知但有界扰动和噪声背景下，用 zonotope 递推量测中断期间的可达状态与残差包络。
