@@ -1,0 +1,9 @@
+figure_4.png	https://raw.githubusercontent.com/Eroticoo/zonoieee-zonotope-reading-20260330/main/state-estimation-of-networked-switched-systems-via-event-triggered-zonotopes/images/figure_4.png
+figure_5.png	https://raw.githubusercontent.com/Eroticoo/zonoieee-zonotope-reading-20260330/main/state-estimation-of-networked-switched-systems-via-event-triggered-zonotopes/images/figure_5.png
+figure_9.png	https://raw.githubusercontent.com/Eroticoo/zonoieee-zonotope-reading-20260330/main/state-estimation-of-networked-switched-systems-via-event-triggered-zonotopes/images/figure_9.png
+header.png	https://raw.githubusercontent.com/Eroticoo/zonoieee-zonotope-reading-20260330/main/state-estimation-of-networked-switched-systems-via-event-triggered-zonotopes/images/header.png
+observer_trigger.png	https://raw.githubusercontent.com/Eroticoo/zonoieee-zonotope-reading-20260330/main/state-estimation-of-networked-switched-systems-via-event-triggered-zonotopes/images/observer_trigger.png
+page4_full.png	https://raw.githubusercontent.com/Eroticoo/zonoieee-zonotope-reading-20260330/main/state-estimation-of-networked-switched-systems-via-event-triggered-zonotopes/images/page4_full.png
+system_model.png	https://raw.githubusercontent.com/Eroticoo/zonoieee-zonotope-reading-20260330/main/state-estimation-of-networked-switched-systems-via-event-triggered-zonotopes/images/system_model.png
+theorem_1.png	https://raw.githubusercontent.com/Eroticoo/zonoieee-zonotope-reading-20260330/main/state-estimation-of-networked-switched-systems-via-event-triggered-zonotopes/images/theorem_1.png
+theorem_2_part1.png	https://raw.githubusercontent.com/Eroticoo/zonoieee-zonotope-reading-20260330/main/state-estimation-of-networked-switched-systems-via-event-triggered-zonotopes/images/theorem_2_part1.png
