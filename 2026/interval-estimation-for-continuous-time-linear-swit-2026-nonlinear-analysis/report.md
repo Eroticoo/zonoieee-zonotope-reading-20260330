@@ -1,6 +1,6 @@
 # 基于椭球分析的连续时间线性切换系统区间估计
 
-![论文抬头：标题与作者](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@main/2026/interval-estimation-for-continuous-time-linear-swit-2026-nonlinear-analysis/images/header.png)
+![论文抬头：标题与作者](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@7945bfe/2026/interval-estimation-for-continuous-time-linear-swit-2026-nonlinear-analysis/images/header.png)
 
 - 作者（英文）：Fan Zhang; Zhenhua Wang; Nacim Meslem; Tarek Raïssi; Yi Shen
 - 关键词：区间估计；连续时间线性切换系统；鲁棒观测器；椭球分析；平均驻留时间
@@ -21,6 +21,8 @@
 
 
 
+
+
 $$
 \begin{aligned}
 \dot{x}(t) &= A_{\sigma(t)}x(t) + B_{\sigma(t)}u(t) + D_{\sigma(t)}w(t),\\
@@ -30,7 +32,11 @@ $$
 
 
 
+
+
 其中 $x(t)$ 是状态，$u(t)$ 是已知输入，$y(t)$ 是输出，$w(t)$ 是未知但有界扰动，$v(t)$ 是测量噪声，$\sigma(t)\in\{1,\dots,m\}$ 是可在线测得的切换信号。初值与外生信号满足
+
+
 
 
 
@@ -42,7 +48,11 @@ $$
 
 
 
+
+
 对应的模态依赖观测器写成
+
+
 
 
 
@@ -54,7 +64,11 @@ $$
 
 
 
+
+
 并令估计误差为
+
+
 
 
 
@@ -64,7 +78,11 @@ $$
 
 
 
+
+
 于是误差系统变为
+
+
 
 
 
@@ -75,7 +93,11 @@ $$
 
 
 
+
+
 其中
+
+
 
 
 
@@ -87,7 +109,11 @@ $$
 
 
 
+
+
 作者进一步把总误差分解为
+
+
 
 
 
@@ -97,7 +123,11 @@ $$
 
 
 
+
+
 并得到两个子系统
+
+
 
 
 
@@ -105,6 +135,8 @@ $$
 \dot{e}_0(t)=A_{L,\sigma(t)}e_0(t),\qquad
 \dot{e}_d(t)=A_{L,\sigma(t)}e_d(t)+D_{L,\sigma(t)}d(t),
 $$
+
+
 
 
 
@@ -135,9 +167,13 @@ $\rightarrow$ 用仿真说明区间更紧、适用范围更广。
 
 
 
+
+
 $$
 N_\sigma(t_1,t_2)\le N_0+\frac{t_2-t_1}{\tau_a},
 $$
+
+
 
 
 
@@ -145,9 +181,11 @@ $$
 
 ### 2.2 关键技术块解析
 
-![Theorem 4.1：任意切换下的鲁棒观测器设计条件](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@main/2026/interval-estimation-for-continuous-time-linear-swit-2026-nonlinear-analysis/images/theorem_4_1.png)
+![Theorem 4.1：任意切换下的鲁棒观测器设计条件](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@7945bfe/2026/interval-estimation-for-continuous-time-linear-swit-2026-nonlinear-analysis/images/theorem_4_1.png)
 
 `Theorem 4.1` 是全文第一条核心结论。它在任意切换情形下给出一组 LMI，只要存在 $P\succ 0$、$\mu>0$ 和 $W_i$ 使这些 LMI 可行，就可以恢复观测器增益
+
+
 
 
 
@@ -157,7 +195,11 @@ $$
 
 
 
+
+
 更关键的是，这个定理同时给出了估计误差范数的衰减上界
+
+
 
 
 
@@ -169,11 +211,15 @@ $$
 
 
 
+
+
 这里的含义很清楚：$e(0)$ 带来的影响按 $e^{-\alpha t}$ 衰减，而外扰带来的稳态影响由 $\mu/\alpha$ 控制。因此 `Theorem 4.1` 并不直接产生区间，但它提供了后续两步区间估计成立所需的稳定骨架与增益设计入口。
 
-![Theorem 4.2：外扰驱动误差的椭球包络与显式上下界](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@main/2026/interval-estimation-for-continuous-time-linear-swit-2026-nonlinear-analysis/images/theorem_4_2.png)
+![Theorem 4.2：外扰驱动误差的椭球包络与显式上下界](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@7945bfe/2026/interval-estimation-for-continuous-time-linear-swit-2026-nonlinear-analysis/images/theorem_4_2.png)
 
 `Theorem 4.2` 处理的是分裂后的外扰驱动项 $e_d(t)$。这部分误差满足零初值、持续受扰，因此作者不再跟踪点轨迹，而是直接给出一个时变椭球
+
+
 
 
 
@@ -184,7 +230,11 @@ $$
 
 
 
+
+
 进一步，利用对角元就可以写出对应的上下界
+
+
 
 
 
@@ -206,17 +256,23 @@ $$
 
 
 
+
+
 这一块的技术价值在于：作者没有直接传播 box，而是先用椭球刻画扰动项的最小紧包络，再把椭球转成区间。这样既保留了椭球在线性系统下易处理的优势，又能输出最终需要的区间形式。换句话说，`Theorem 4.2` 才是论文从“稳定性分析”走向“紧区间估计”的桥梁。
 
-![Theorem 5.2：ADT 情形下的模式依赖椭球包络](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@main/2026/interval-estimation-for-continuous-time-linear-swit-2026-nonlinear-analysis/images/theorem_5_2.png)
+![Theorem 5.2：ADT 情形下的模式依赖椭球包络](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@7945bfe/2026/interval-estimation-for-continuous-time-linear-swit-2026-nonlinear-analysis/images/theorem_5_2.png)
 
 `Theorem 5.2` 把上一条思路推广到 ADT 情形。由于每个模态允许拥有不同的 Lyapunov 矩阵，外扰误差包络变成
+
+
 
 
 
 $$
 Q(t)=\tilde{P}_{\sigma(t_k)}^{-1}\bigl(1-e^{-\alpha(t-t_k)}\bigr),\qquad t\in[t_k,t_{k+1}),
 $$
+
+
 
 
 
@@ -233,11 +289,17 @@ $$
 
 在二维算例中，系统矩阵来自文献 [36]，输入在任意切换情形取常值 $u(t)=0.5$。作者先用 
 
+
+
 $$
 \alpha=0.5,\rho=19
 $$
 
+
+
  求解观测器，再用 `Theorem 4.2` 计算 $e_d(t)$ 的最小椭球。ADT 算例中则采用
+
+
 
 
 
@@ -247,25 +309,31 @@ $$
 
 
 
+
+
 并设置 
+
+
 
 $$
 \alpha=0.5,\rho=330,\eta=2
 $$
 
+
+
  设计观测器，再以 $\alpha=0.9$ 计算模式依赖椭球。五维算例主要用来说明本文方法不需要像对比方法那样满足更苛刻的 Metzler 型结构限制。
 
 ### 3.2 主要结果与对比说明
 
-![Fig. 5：ADT 情形下误差椭球、其最小 box 与总误差外包络](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@main/2026/interval-estimation-for-continuous-time-linear-swit-2026-nonlinear-analysis/images/figure_5.png)
+![Fig. 5：ADT 情形下误差椭球、其最小 box 与总误差外包络](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@7945bfe/2026/interval-estimation-for-continuous-time-linear-swit-2026-nonlinear-analysis/images/figure_5.png)
 
 `Fig. 5` 给出的不是普通时间序列，而是 ADT 情形下若干时刻的几何包络关系。图中同时画出了真实状态点、外扰驱动误差对应的椭球 $\mathcal{E}(\hat{x}(t),Q(t))$、其最小 box，以及总误差的更大外包络。它证明了一件很关键的事情：本文的两步分解并不是抽象推导，而是确实把“扰动项椭球包络”和“总误差区间包络”区分开了。随着时间演化，总误差 box 会逐渐向由外扰主导的稳态包络收缩，这恰好回应了作者想降低初值传播保守性的初衷。
 
-![Fig. 3：任意切换下与现有方法的区间估计对比](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@main/2026/interval-estimation-for-continuous-time-linear-swit-2026-nonlinear-analysis/images/figure_3.png)
+![Fig. 3：任意切换下与现有方法的区间估计对比](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@7945bfe/2026/interval-estimation-for-continuous-time-linear-swit-2026-nonlinear-analysis/images/figure_3.png)
 
 `Fig. 3` 是任意切换情形下最直接的对比证据。黑线是真实状态，绿色虚线是文献 [34] 的包络，蓝色虚线是本文 Section 4 的区间结果。可以看到，两种方法都覆盖了真实状态，但本文给出的蓝色区间明显更紧，尤其在若干切换瞬间和稳态阶段都保留了更小的上下界间距。因此，这张图支持的不是“方法可用”这种弱结论，而是“在同样可覆盖真实状态的前提下，本文方法显著降低了保守性”。
 
-![Fig. 8：五维系统上的区间估计结果](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@main/2026/interval-estimation-for-continuous-time-linear-swit-2026-nonlinear-analysis/images/figure_8.png)
+![Fig. 8：五维系统上的区间估计结果](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@7945bfe/2026/interval-estimation-for-continuous-time-linear-swit-2026-nonlinear-analysis/images/figure_8.png)
 
 `Fig. 8` 对应五维算例的五个状态分量区间估计。这里最值得注意的不是某一条曲线更紧，而是对比方法在该例上由于结构条件无法应用，而本文方法仍能正常给出五维状态的上下界包络。从图上看，所有真实轨迹都被包络覆盖，且各维区间宽度没有出现失控膨胀。这说明论文方法除了精度优势之外，还有一个更实用的优点：适用范围比依赖 cooperative / Metzler 结构的方法更广。
 
