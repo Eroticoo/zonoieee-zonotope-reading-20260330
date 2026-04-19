@@ -1,6 +1,6 @@
 # 加密-解密机制下多速率复杂网络的安全Zonotope集员状态估计
 
-![论文抬头：标题与作者](__PUBLIC_IMAGE_PREFIX__/header.png)
+![论文抬头：标题与作者](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@main/secure-zonotopic-set-membership-state-estimation-for-multirate-complex-networks-under-encryptiondecryption-mechanism/images/header.png)
 
 - 关键词：加密-解密机制；多速率复杂网络；非线性系统；Zonotope；集员状态估计
 - DOI / 论文链接：https://doi.org/10.1109/TAC.2023.3347599
@@ -21,6 +21,8 @@
 
 
 
+
+
 $$
 \begin{aligned}
 x_{i,T_{k+1}}
@@ -34,7 +36,11 @@ $$
 
 
 
+
+
 为了处理多速率采样，作者引入同步后的伪测量
+
+
 
 
 
@@ -46,7 +52,11 @@ $$
 
 
 
+
+
 在此基础上，EDM 的核心步骤是先加密再解密：
+
+
 
 
 
@@ -63,7 +73,11 @@ $$
 
 
 
+
+
 估计器再利用所有邻居的解密输出进行分布式校正：
+
+
 
 
 
@@ -83,6 +97,8 @@ $$
 \right).
 \end{aligned}
 $$
+
+
 
 
 
@@ -108,10 +124,14 @@ $$
 
 
 
+
+
 $$
 f_i(x_{i,T_k}) - f_i(\hat x_{i,T_k\mid T_k})
 = F_{i,T_k}e_{i,T_k\mid T_k} + r_{i,T_k},
 $$
+
+
 
 
 
@@ -120,31 +140,31 @@ $$
 ### 2.2 关键技术块解析
 系统模型、伪测量和 EDM 是整篇文章的起点。作者不是直接在原始不等采样输出上做估计，而是先把测量同步，再把加密与解密过程写进系统层。这样做的价值在于：后续误差系统里新增的加密误差项不是凭空出现，而是来源可追踪、可定界。
 
-![technical_core_1：系统模型与EDM](__PUBLIC_IMAGE_PREFIX__/technical_core_1.png)
+![图1：Fig. 1，多速率复杂网络状态估计问题示意图](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@main/secure-zonotopic-set-membership-state-estimation-for-multirate-complex-networks-under-encryptiondecryption-mechanism/images/figure_1.png)
 
 上面这块内容的关键不在公式数量，而在“建模闭环”是否完整。文章把多速率、量化、丢包、动态密钥和分布式校正都放进了统一的状态估计问题里，因此后面所有关于收敛、上界和密钥规则的结论，都不是孤立通信分析，而是直接服务于状态估计本身。
 
 **Lemma 5** 是后续所有安全相关结论的门槛条件。它证明：只要动态密钥满足一个有效量化区间条件，那么由加密过程引入的误差 $\Delta_{T_k}$ 就可以被束缚在已知 zonotope $\langle 0, H_{\Delta}\rangle$ 内。
 
-![lemma_5：加密误差的zonotope有界性](__PUBLIC_IMAGE_PREFIX__/lemma_5.png)
+![lemma_5：加密误差的zonotope有界性](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@main/secure-zonotopic-set-membership-state-estimation-for-multirate-complex-networks-under-encryptiondecryption-mechanism/images/lemma_5.png)
 
 这一步非常关键，因为如果加密误差只能“存在”而不能“定界”，那么它就无法并入 zonotope 递推。作者实际上是在这里完成了从“安全机制”到“集合估计对象”的转换。换句话说，Lemma 5 把通信侧的量化加密误差，翻译成了估计理论里可以计算的集合扰动。
 
 **Theorem 1** 进一步把预测误差和校正误差都包进新的 zonotope 里。其核心结论不是某个数值收敛，而是给出两个显式生成矩阵 $H_{T_{k+1}\mid T_k}$ 和 $H_{T_{k+1}\mid T_{k+1}}$，说明误差集合如何一步步传播。
 
-![theorem_1：预测误差与校正误差的zonotope递推](__PUBLIC_IMAGE_PREFIX__/theorem_1.png)
+![theorem_1：预测误差与校正误差的zonotope递推](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@main/secure-zonotopic-set-membership-state-estimation-for-multirate-complex-networks-under-encryptiondecryption-mechanism/images/theorem_1.png)
 
 这一层的意义在于，作者把误差传播拆成三类来源：系统传播项、非线性余项项、噪声/加密项。于是后续任何优化或收敛讨论，都可以落到这些生成矩阵上。它奠定了“分布式估计 + EDM + 非线性余项”可以统一递推的数学基础。
 
 **Theorem 3** 则回答了“有了误差 zonotope 之后，怎样把它做小”这个问题。作者把目标写成最小化 $\lVert H_{T_{k+1}\mid T_{k+1}}\rVert_F^2$，从而得到分布式估计器增益的显式结构。
 
-![theorem_3：最小F-radius意义下的分布式估计器增益](__PUBLIC_IMAGE_PREFIX__/theorem_3.png)
+![theorem_3：最小F-radius意义下的分布式估计器增益](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@main/secure-zonotopic-set-membership-state-estimation-for-multirate-complex-networks-under-encryptiondecryption-mechanism/images/theorem_3.png)
 
 这一步是工程可用性的关键。许多集合估计工作只能说明“存在一个集合约束”，但这篇文章更进一步，把估计器增益与集合尺寸优化直接挂钩。这里的 **F-radius** 不是附属指标，而是连接“集合大小”“估计性能”和“后续密钥设计”的桥梁。
 
 **Theorem 5** 则把上界分析推到最终的安全设计规则上。作者先在 Theorem 4 中构造 F-radius 上界的标量递推，再在 Theorem 5 中给出该上界收敛的充要条件，最终得到对 $\breve g_{T_k}$ 的设计约束。
 
-![theorem_5：动态加密密钥的收敛性设计规则](__PUBLIC_IMAGE_PREFIX__/theorem_5.png)
+![theorem_5：动态加密密钥的收敛性设计规则](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@main/secure-zonotopic-set-membership-state-estimation-for-multirate-complex-networks-under-encryptiondecryption-mechanism/images/theorem_5.png)
 
 这一块的真正价值在于：密钥不是随便加大扰动强度就越安全。若密钥设计破坏了误差上界收敛，那么估计器虽然“更难被窃听”，却会失去可用性。作者因此得到一个更平衡的结论：动态密钥必须落在由系统参数、噪声上界和 F-radius 递推共同决定的可行区间内，安全性和估计性能必须联合设计。
 
@@ -161,42 +181,42 @@ $$
 ### 3.2 主要结果与对比说明
 首先，**Fig. 3** 展示了状态分量 $x_{1,T_k}$ 的 zonotopic estimation 结果。图里最重要的信息不是曲线是否“贴合”，而是估计得到的 zonotope 约束能否持续包住真实状态轨迹。
 
-![figure_1：状态分量x1的zonotope估计结果](__PUBLIC_IMAGE_PREFIX__/figure_1.png)
+![图3：Fig. 3，状态分量x1的zonotope估计结果](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@main/secure-zonotopic-set-membership-state-estimation-for-multirate-complex-networks-under-encryptiondecryption-mechanism/images/figure_3.png)
 
 从论文文字说明可知，Figs. 3--5 共同表明所设计的估计器确实能稳定生成包含真实状态的集合约束。这说明作者前面构造的误差 zonotope 递推不是形式化推导，而是落到了可观察的状态包络结果上。
 
 **Fig. 6** 与 **Table I** 进一步检验的是 F-radius 上界。这里的看点不只是“上界下降了”，而是文中同时指出真实误差 zonotope 的 F-radius 始终小于该上界，因此这个上界不是完全松散的理论摆设，而是一个对实际估计尺寸有解释力的安全边界。
 
-![figure_2：F-radius上界随时间的演化](__PUBLIC_IMAGE_PREFIX__/figure_2.png)
+![图6：Fig. 6，F-radius上界随时间的演化](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@main/secure-zonotopic-set-membership-state-estimation-for-multirate-complex-networks-under-encryptiondecryption-mechanism/images/figure_6.png)
 
-![table_1：F-radius上界的数值结果](__PUBLIC_IMAGE_PREFIX__/table_1.png)
+![表1：TABLE I，F-radius上界的数值结果](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@main/secure-zonotopic-set-membership-state-estimation-for-multirate-complex-networks-under-encryptiondecryption-mechanism/images/table_1.png)
 
 这组证据支持了 Theorem 4 和 Theorem 5 的理论目标：只要密钥满足设计规则，上界就能保持收敛，进而说明 EDM 没有把估计问题推向发散。
 
 **Fig. 7** 直接验证了加密-解密机制本身。子图 (a) 反映动态密钥的实时变化，子图 (b) 则对比了加密前后的测量输出。
 
-![figure_3：动态密钥与加密-解密效果](__PUBLIC_IMAGE_PREFIX__/figure_3.png)
+![图7：Fig. 7，动态密钥与加密-解密效果](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@main/secure-zonotopic-set-membership-state-estimation-for-multirate-complex-networks-under-encryptiondecryption-mechanism/images/figure_7.png)
 
 这一结果证明了两个层面的结论：其一，加密后的数据形态已经明显偏离原始测量，说明窃听者不能直接读取有效信号；其二，合法接收端经过解密后仍可重构出可用于估计的测量信息，说明保密性并没有以牺牲可恢复性为代价。
 
 **Fig. 9** 是本文安全性论证里最有说服力的一组结果之一。它对应的是“窃听者知道系统动力学、估计器和噪声参数，但不知道 EDM 存在”的情形。作者展示了此时窃听者无法获得有效状态估计结果。
 
-![figure_4：窃听者视角下的无效状态估计结果](__PUBLIC_IMAGE_PREFIX__/figure_4.png)
+![图9：Fig. 9，Case 1 下窃听者视角的无效状态估计结果](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@main/secure-zonotopic-set-membership-state-estimation-for-multirate-complex-networks-under-encryptiondecryption-mechanism/images/figure_9.png)
 
 这说明 EDM 的价值不只是让信号“看起来更乱”，而是实质性破坏了窃听者对状态的可重构性。结合文中对 Case 2 和 Case 3 的讨论，可以看出真正决定安全边界的，不只是是否知道加密原理，而是是否掌握了设计密钥所需的预设参数与具体规则。
 
 ## 4. 后续研究方向
 1. 初级想法
    标题：面向DoS扰动的轻量级EDM-Zonotope联合估计扩展
-   *核心想法：适合研一或研二学生作为入门课题，在本文框架中保留 zonotope 递推与动态密钥设计，只额外加入简单的 DoS 攻击指示变量或丢包持续时长模型，先研究“间歇性不可达测量”下误差 zonotope 是否仍可递推，再做仿真比较 F-radius 上界与恢复时间。这个方向改动点集中、上手快、低门槛，适合硕士阶段快速形成一篇方法改进型工作。*
+   *核心想法：供研一或研二学生实现，在现有框架中加入 DoS 攻击或连续丢包模型，并重新给出误差 zonotope 递推与仿真结果。*
    数学推导难度：中
 2. 高级想法
    标题：面向博士生的分布式协同密钥-控制-估计一体化设计
-   *核心想法：适合博士生深入推进，把本文的“密钥设计保证估计收敛”进一步提升为“密钥、估计器、控制器联合优化”，例如在输出反馈控制或事件触发控制闭环下，同时约束控制性能、通信代价与安全性。这样会引入更强的耦合项、更长的定理链以及更高难度的矩阵不等式或集合递推分析，属于明显更高阶、更深入的研究主题。*
+   *核心想法：供博士生推进，联合设计动态密钥、分布式估计器增益和闭环控制律。*
    数学推导难度：很高
 3. 指导想法
    标题：教授视角下的安全集合估计研究梯度与学生培养路径
-   *核心想法：面向教授或导师的指导方案应把课题拆成三个梯度：先让研究生复现本文的 zonotope 递推、F-radius 上界与仿真平台；再分工推进 DoS、欺骗攻击、异步通信或控制闭环等单一扩展；最后把多个扩展收束成统一理论框架。指导时应强调先证明最小可行命题，再逐步加复杂机制，避免研究生一开始就堆叠多种攻击与多目标优化而失控。课题组层面可按“理论证明、算法实现、实验复现”分工推进，并根据成熟度安排会议论文到期刊论文的投稿节奏。*
+   *核心想法：供教授或导师组织课题时使用，先安排研究生复现本文平台，再分配攻击模型扩展、收敛性证明和实验验证三个方向并行推进。*
    数学推导难度：高
 
 ## 5. 总结与评价
