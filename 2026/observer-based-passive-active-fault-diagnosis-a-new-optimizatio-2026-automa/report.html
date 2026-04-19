@@ -209,7 +209,7 @@ hr {
     <article class="wechat-article">
       <h1 class="article-title">基于观测器的被动/主动故障诊断：一种新的优化视角</h1>
       
-      <figure class="image-block"><img src="https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@main/2026/observer-based-passive-active-fault-diagnosis-a-new-optimizatio-2026-automa/images/header.png" alt="论文抬头：标题与作者" /><div class="image-caption">论文抬头：标题与作者</div></figure>
+      <figure class="image-block"><img src="https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@9a57fde/2026/observer-based-passive-active-fault-diagnosis-a-new-optimizatio-2026-automa/images/header.png" alt="论文抬头：标题与作者" /><div class="image-caption">论文抬头：标题与作者</div></figure>
 <ul>
 <li>作者：Yuxin Sun, Feng Xu</li><li>关键词：Fault diagnosis; Set-valued observers; Observer gain optimization; State set separation tendency</li><li>DOI / 论文链接：https://doi.org/10.1016/j.automatica.2026.112835</li>
 </ul>
@@ -240,7 +240,7 @@ $$</div>
 <h3>2.1 整体技术路线</h3>
 <p>论文第二部分的逻辑非常紧：先由 <strong>Proposition 4.1</strong> 把测量约束对应到状态集合，再由 <strong>Proposition 4.2</strong> 把传统故障诊断条件改写成集合相交性测试；接着 <strong>Theorem 4.1</strong> 说明基准状态集合应如何选取，最后 <strong>Theorem 4.2</strong> 把“如何让两个集合尽量分开”写成可求解优化问题。也就是说，这篇文章不是单独给出一个新优化模型，而是先完成<strong>诊断判据重解释</strong>，再完成<strong>几何指标定义</strong>，最后才落到<strong>增益设计</strong>。</p>
 <h3>2.2 关键技术块解析</h3>
-<figure class="image-block"><img src="https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@main/2026/observer-based-passive-active-fault-diagnosis-a-new-optimizatio-2026-automa/images/proposition_4_1.png" alt="proposition_4_1：输出一致状态集的显式表示" /><div class="image-caption">proposition_4_1：输出一致状态集的显式表示</div></figure>
+<figure class="image-block"><img src="https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@9a57fde/2026/observer-based-passive-active-fault-diagnosis-a-new-optimizatio-2026-automa/images/proposition_4_1.png" alt="proposition_4_1：输出一致状态集的显式表示" /><div class="image-caption">proposition_4_1：输出一致状态集的显式表示</div></figure>
 <p><strong>Proposition 4.1</strong> 给出了输出一致状态集的显式表达，这是全文从输出视角切换到状态视角的基础。它先定义</p>
 <div class="math-block mathjax-wrapper">$$
 X_{y_k}=\{x\in \mathbb{R}^{n_x}: Cx\in Y_k\},
@@ -270,7 +270,7 @@ $$</div>
 X_{y_{k+1}}\cap \hat X_{k+1}^i\neq \varnothing.
 $$</div>
 <p>这一步把“输出能否被某模式观测器解释”变成了“该模式状态集合是否还与测量一致状态集合相交”。因此，后续只要想办法让错误模式下的集合更快分离，诊断速度就会提高。</p>
-<figure class="image-block"><img src="https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@main/2026/observer-based-passive-active-fault-diagnosis-a-new-optimizatio-2026-automa/images/theorem_4_1.png" alt="theorem_4_1：最精确基准状态集的选择" /><div class="image-caption">theorem_4_1：最精确基准状态集的选择</div></figure>
+<figure class="image-block"><img src="https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@9a57fde/2026/observer-based-passive-active-fault-diagnosis-a-new-optimizatio-2026-automa/images/theorem_4_1.png" alt="theorem_4_1：最精确基准状态集的选择" /><div class="image-caption">theorem_4_1：最精确基准状态集的选择</div></figure>
 <p><strong>Theorem 4.1</strong> 解决的是“拿谁作为比较基准”这个问题。作者证明：当已知 \(X_{y_k}\) 时，若令基准观测器增益取零，则</p>
 <div class="math-block mathjax-wrapper">$$
 AX_{y_k}\oplus BG^i u_k \oplus EW
@@ -278,7 +278,7 @@ AX_{y_k}\oplus BG^i u_k \oplus EW
 (A-L_k^i C)X_{y_k}\oplus BG^i u_k \oplus EW \oplus L_k^iY_k,\quad \forall L_k^i\neq 0.
 $$</div>
 <p>这说明 \(L_k^i=0\) 给出的前向传播集合最“紧”，因此最适合作为第二个参考状态集。它直接支撑后文的双集合构造：一个集合用于保持可调增益，另一个集合用于提供最精确的比较标尺。没有这一步，后面的分离优化就缺少几何参照。</p>
-<figure class="image-block"><img src="https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@main/2026/observer-based-passive-active-fault-diagnosis-a-new-optimizatio-2026-automa/images/theorem_4_2.png" alt="theorem_4_2：分离倾向与观测器增益优化" /><div class="image-caption">theorem_4_2：分离倾向与观测器增益优化</div></figure>
+<figure class="image-block"><img src="https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@9a57fde/2026/observer-based-passive-active-fault-diagnosis-a-new-optimizatio-2026-automa/images/theorem_4_2.png" alt="theorem_4_2：分离倾向与观测器增益优化" /><div class="image-caption">theorem_4_2：分离倾向与观测器增益优化</div></figure>
 <p>在选定基准集合后，论文把两类集合记为 \(\bar X_{k+1}^{i,1}\) 与 \(\bar X_{k+1}^{i,2}\)，并用受约束 zonotope 的缩放交界来定义“分离倾向” \(\hat\delta_{k+1}^i\)。其设计目标可概括为</p>
 <div class="math-block mathjax-wrapper">$$
 \hat\delta_{k+1}^{i,*}=\max_{L_k^i}\hat\delta_{k+1}^i.
@@ -288,11 +288,11 @@ $$</div>
 <h3>3.1 仿真设置与对比对象</h3>
 <p>作者使用一个两输入、四状态、两输出的离散系统进行 MATLAB 仿真，考虑健康模式 \(G_0=I_2\) 与两个单执行器故障模式 \(G_1,G_2\)。噪声与扰动均由 zonotope 有界，单次设置下重复 100 次随机测试，并设置最大诊断时域 \(k_{\max}=21\)。因此，仿真考察的不是单次幸运命中，而是给定输入或输入约束下的<strong>诊断成功率与诊断步数</strong>。</p>
 <h3>3.2 主要结果与对比说明</h3>
-<figure class="image-block"><img src="https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@main/2026/observer-based-passive-active-fault-diagnosis-a-new-optimizatio-2026-automa/images/figure_2.png" alt="figure_2：第一类执行器故障的 PFD 成功率" /><div class="image-caption">figure_2：第一类执行器故障的 PFD 成功率</div></figure>
+<figure class="image-block"><img src="https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@9a57fde/2026/observer-based-passive-active-fault-diagnosis-a-new-optimizatio-2026-automa/images/figure_2.png" alt="figure_2：第一类执行器故障的 PFD 成功率" /><div class="image-caption">figure_2：第一类执行器故障的 PFD 成功率</div></figure>
 <p><strong>Fig. 2</strong> 展示第一类执行器故障在不同常值输入设置下的 PFD 成功率分布。它说明本文方法不是只对个别输入有效，而是可以把输入空间中“更有利于诊断”的区域显式暴露出来。也就是说，状态集分离视角不只是改善单次判定，它还能提供输入选择的方向感。</p>
-<figure class="image-block"><img src="https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@main/2026/observer-based-passive-active-fault-diagnosis-a-new-optimizatio-2026-automa/images/figure_4.png" alt="figure_4：较宽输入约束下的第一故障模式 AFD 结果" /><div class="image-caption">figure_4：较宽输入约束下的第一故障模式 AFD 结果</div></figure>
+<figure class="image-block"><img src="https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@9a57fde/2026/observer-based-passive-active-fault-diagnosis-a-new-optimizatio-2026-automa/images/figure_4.png" alt="figure_4：较宽输入约束下的第一故障模式 AFD 结果" /><div class="image-caption">figure_4：较宽输入约束下的第一故障模式 AFD 结果</div></figure>
 <p><strong>Fig. 4</strong> 给出第一故障模式在 \(U=\langle 0,5I_2\rangle_Z\) 下的 AFD 结果。论文正文明确指出，在 \(k=2\) 时，真实输出只落在故障模式 \(1\) 的输出估计集合中，而不属于健康模式和另一故障模式的集合，因此可以在第 2 步完成诊断。这说明经优化后的观测器增益确实加速了错误模式排除。</p>
-<figure class="image-block"><img src="https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@main/2026/observer-based-passive-active-fault-diagnosis-a-new-optimizatio-2026-automa/images/figure_6.png" alt="figure_6：缩小输入约束后的第一故障模式 AFD 结果" /><div class="image-caption">figure_6：缩小输入约束后的第一故障模式 AFD 结果</div></figure>
+<figure class="image-block"><img src="https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@9a57fde/2026/observer-based-passive-active-fault-diagnosis-a-new-optimizatio-2026-automa/images/figure_6.png" alt="figure_6：缩小输入约束后的第一故障模式 AFD 结果" /><div class="image-caption">figure_6：缩小输入约束后的第一故障模式 AFD 结果</div></figure>
 <p><strong>Fig. 6</strong> 进一步把输入约束缩小到 \(\tilde U=\langle 0,1.5I_2\rangle_Z\)。这时诊断仍然成功，但完成时间从 \(k=2\) 推迟到 \(k=3\)。这个结果很关键，因为它揭示了本文方法的真实收益边界：增益优化确实能增强集合分离，但输入激励幅值仍然直接影响分离速度。换句话说，论文并没有宣称“增益可以替代输入”，而是证明“在输入受限时，合适的增益能尽量保住诊断能力”。</p>
 <h2>4. 后续研究方向</h2>
 <ol>

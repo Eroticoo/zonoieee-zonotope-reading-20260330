@@ -1,6 +1,6 @@
 # 面向信息物理系统的传感器攻击检测与辨识：一种数据驱动方法
 
-![论文抬头：标题与作者](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@main/2026/sensor-attack-detection-and-identification-for-cybe-2026-applied-mathematics/images/header.png)
+![论文抬头：标题与作者](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@9a57fde/2026/sensor-attack-detection-and-identification-for-cybe-2026-applied-mathematics/images/header.png)
 
 - 作者：Kaiyu Wang, Dan Ye
 - 关键词：Attack detection and identification; Data-driven; Zonotopes; Cyber-physical systems; Sensor attacks
@@ -56,7 +56,7 @@ $$
 
 ### 2.2 关键技术块解析
 
-![theorem_3：数据驱动预测测量 zonotope 的构造](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@main/2026/sensor-attack-detection-and-identification-for-cybe-2026-applied-mathematics/images/theorem_3.png)
+![theorem_3：数据驱动预测测量 zonotope 的构造](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@9a57fde/2026/sensor-attack-detection-and-identification-for-cybe-2026-applied-mathematics/images/theorem_3.png)
 
 **Theorem 3** 是全文最核心的建模结果。作者在满足前序秩条件与信息窗长度条件后，证明预测测量集可以写成
 
@@ -89,7 +89,7 @@ $$
 
 这一步的意义非常大，因为它说明即使 \(A,B,C\) 完全未知，也可以利用输入状态轨迹、噪声矩阵 zonotope 约束以及子空间逆映射关系，直接得到当前时刻的输出可达集合。换句话说，论文把“模型驱动预测”改造成了“数据闭包预测”。
 
-![theorem_4：基于投影系数的攻击检测准则](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@main/2026/sensor-attack-detection-and-identification-for-cybe-2026-applied-mathematics/images/theorem_4.png)
+![theorem_4：基于投影系数的攻击检测准则](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@9a57fde/2026/sensor-attack-detection-and-identification-for-cybe-2026-applied-mathematics/images/theorem_4.png)
 
 有了预测测量集以后，**Theorem 4** 给出很干净的检测指标。令
 
@@ -111,11 +111,11 @@ $$
 
 这个判据的优点是实现成本低，而且和 zonotope 表达完全一致。它不是做概率意义上的异常评分，而是在做“当前测量是否已经逃出正常可达集”的集合判别。
 
-![algorithm_2：数据驱动攻击检测与辨识总流程](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@main/2026/sensor-attack-detection-and-identification-for-cybe-2026-applied-mathematics/images/algorithm_2.png)
+![algorithm_2：数据驱动攻击检测与辨识总流程](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@9a57fde/2026/sensor-attack-detection-and-identification-for-cybe-2026-applied-mathematics/images/algorithm_2.png)
 
 **Algorithm 2** 把整篇文章的实现流程串了起来：先构造过去/未来数据矩阵，再做核表示分解，接着计算噪声矩阵约束集合 \(\mathbb{M}_{C_w}\)、预测 zonotope \(Z_{y_k}\)、残差 \(d_k\)，然后用列截断算法压缩生成矩阵，最后执行攻击检测与位置辨识。这里列截断非常关键，因为随着时间推进，\(\Theta_{y_k}\) 维数会不断增大；如果不截断，理论虽然成立，但在线开销会迅速上升。
 
-![theorem_5：受攻击传感器位置的辨识条件](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@main/2026/sensor-attack-detection-and-identification-for-cybe-2026-applied-mathematics/images/theorem_5.png)
+![theorem_5：受攻击传感器位置的辨识条件](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@9a57fde/2026/sensor-attack-detection-and-identification-for-cybe-2026-applied-mathematics/images/theorem_5.png)
 
 在检测出攻击之后，**Theorem 5** 把判别从整体残差细化到单传感器方向。对第 \(i\) 个传感器，作者构造
 
@@ -145,15 +145,15 @@ $$
 
 ### 3.2 主要结果与对比说明
 
-![figure_3：稀疏传感器攻击检测结果](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@main/2026/sensor-attack-detection-and-identification-for-cybe-2026-applied-mathematics/images/figure_3.png)
+![figure_3：稀疏传感器攻击检测结果](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@9a57fde/2026/sensor-attack-detection-and-identification-for-cybe-2026-applied-mathematics/images/figure_3.png)
 
 **Fig. 3** 对应 Case 1 的检测结果：攻击分别在 \(k\in[200,500]\) 和 \(k\in[700,1000]\) 两个时间段注入。文章明确说明，攻击出现后，真实测量迅速逃离预测 zonotope，违反量 \(\|\Theta_{y_k}^\top d_k\|_\infty\) 同步越界，因此检测曲线可以准确标出两个攻击时段。这表明基于集合外逸的判据在有界噪声下确实能做到低误报。
 
-![figure_4：稀疏传感器攻击位置辨识结果](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@main/2026/sensor-attack-detection-and-identification-for-cybe-2026-applied-mathematics/images/figure_4.png)
+![figure_4：稀疏传感器攻击位置辨识结果](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@9a57fde/2026/sensor-attack-detection-and-identification-for-cybe-2026-applied-mathematics/images/figure_4.png)
 
 **Fig. 4** 进一步展示了定位能力。第一次攻击只作用于 \(L=\{1\}\)，第二次攻击作用于 \(L=\{2,3\}\)。图中的对应辨识系数在攻击期间越过阈值，而未受攻击通道保持在阈值以下，说明 **Theorem 5** 的逐通道投影判据可以正确恢复攻击位置，而不是只给出“系统被攻击了”的粗判断。
 
-![figure_7：辨识计算量对比](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@main/2026/sensor-attack-detection-and-identification-for-cybe-2026-applied-mathematics/images/figure_7.png)
+![figure_7：辨识计算量对比](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@9a57fde/2026/sensor-attack-detection-and-identification-for-cybe-2026-applied-mathematics/images/figure_7.png)
 
 **Fig. 7** 给出了计算复杂度上的对比。论文指出，当攻击传感器数量未知时，本文方法每个时刻只需要做 \(n_y\) 次计算，而对比方法需要枚举 \(\sum_{p=1}^{n_y} C_{n_y}^p\) 个候选集合。这个结果说明列截断与逐通道判别并不是附属优化，而是决定该方法能否扩展到多传感器系统的关键工程设计。
 
