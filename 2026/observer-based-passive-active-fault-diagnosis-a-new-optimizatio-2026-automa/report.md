@@ -1,6 +1,6 @@
 # 基于观测器的被动/主动故障诊断：一种新的优化视角
 
-![论文抬头：标题与作者](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@9a57fde/2026/observer-based-passive-active-fault-diagnosis-a-new-optimizatio-2026-automa/images/header.png)
+![论文抬头：标题与作者](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@dbad67f/2026/observer-based-passive-active-fault-diagnosis-a-new-optimizatio-2026-automa/images/header.png)
 
 - 作者：Yuxin Sun, Feng Xu
 - 关键词：Fault diagnosis; Set-valued observers; Observer gain optimization; State set separation tendency
@@ -49,7 +49,7 @@ $$
 
 ### 2.2 关键技术块解析
 
-![proposition_4_1：输出一致状态集的显式表示](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@9a57fde/2026/observer-based-passive-active-fault-diagnosis-a-new-optimizatio-2026-automa/images/proposition_4_1.png)
+![proposition_4_1：输出一致状态集的显式表示](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@dbad67f/2026/observer-based-passive-active-fault-diagnosis-a-new-optimizatio-2026-automa/images/proposition_4_1.png)
 
 **Proposition 4.1** 给出了输出一致状态集的显式表达，这是全文从输出视角切换到状态视角的基础。它先定义
 
@@ -90,7 +90,7 @@ $$
 
 这一步把“输出能否被某模式观测器解释”变成了“该模式状态集合是否还与测量一致状态集合相交”。因此，后续只要想办法让错误模式下的集合更快分离，诊断速度就会提高。
 
-![theorem_4_1：最精确基准状态集的选择](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@9a57fde/2026/observer-based-passive-active-fault-diagnosis-a-new-optimizatio-2026-automa/images/theorem_4_1.png)
+![theorem_4_1：最精确基准状态集的选择](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@dbad67f/2026/observer-based-passive-active-fault-diagnosis-a-new-optimizatio-2026-automa/images/theorem_4_1.png)
 
 **Theorem 4.1** 解决的是“拿谁作为比较基准”这个问题。作者证明：当已知 \(X_{y_k}\) 时，若令基准观测器增益取零，则
 
@@ -102,7 +102,7 @@ $$
 
 这说明 \(L_k^i=0\) 给出的前向传播集合最“紧”，因此最适合作为第二个参考状态集。它直接支撑后文的双集合构造：一个集合用于保持可调增益，另一个集合用于提供最精确的比较标尺。没有这一步，后面的分离优化就缺少几何参照。
 
-![theorem_4_2：分离倾向与观测器增益优化](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@9a57fde/2026/observer-based-passive-active-fault-diagnosis-a-new-optimizatio-2026-automa/images/theorem_4_2.png)
+![theorem_4_2：分离倾向与观测器增益优化](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@dbad67f/2026/observer-based-passive-active-fault-diagnosis-a-new-optimizatio-2026-automa/images/theorem_4_2.png)
 
 在选定基准集合后，论文把两类集合记为 \(\bar X_{k+1}^{i,1}\) 与 \(\bar X_{k+1}^{i,2}\)，并用受约束 zonotope 的缩放交界来定义“分离倾向” \(\hat\delta_{k+1}^i\)。其设计目标可概括为
 
@@ -119,15 +119,15 @@ $$
 
 ### 3.2 主要结果与对比说明
 
-![figure_2：第一类执行器故障的 PFD 成功率](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@9a57fde/2026/observer-based-passive-active-fault-diagnosis-a-new-optimizatio-2026-automa/images/figure_2.png)
+![figure_2：第一类执行器故障的 PFD 成功率](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@dbad67f/2026/observer-based-passive-active-fault-diagnosis-a-new-optimizatio-2026-automa/images/figure_2.png)
 
 **Fig. 2** 展示第一类执行器故障在不同常值输入设置下的 PFD 成功率分布。它说明本文方法不是只对个别输入有效，而是可以把输入空间中“更有利于诊断”的区域显式暴露出来。也就是说，状态集分离视角不只是改善单次判定，它还能提供输入选择的方向感。
 
-![figure_4：较宽输入约束下的第一故障模式 AFD 结果](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@9a57fde/2026/observer-based-passive-active-fault-diagnosis-a-new-optimizatio-2026-automa/images/figure_4.png)
+![figure_4：较宽输入约束下的第一故障模式 AFD 结果](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@dbad67f/2026/observer-based-passive-active-fault-diagnosis-a-new-optimizatio-2026-automa/images/figure_4.png)
 
 **Fig. 4** 给出第一故障模式在 \(U=\langle 0,5I_2\rangle_Z\) 下的 AFD 结果。论文正文明确指出，在 \(k=2\) 时，真实输出只落在故障模式 \(1\) 的输出估计集合中，而不属于健康模式和另一故障模式的集合，因此可以在第 2 步完成诊断。这说明经优化后的观测器增益确实加速了错误模式排除。
 
-![figure_6：缩小输入约束后的第一故障模式 AFD 结果](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@9a57fde/2026/observer-based-passive-active-fault-diagnosis-a-new-optimizatio-2026-automa/images/figure_6.png)
+![figure_6：缩小输入约束后的第一故障模式 AFD 结果](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@dbad67f/2026/observer-based-passive-active-fault-diagnosis-a-new-optimizatio-2026-automa/images/figure_6.png)
 
 **Fig. 6** 进一步把输入约束缩小到 \(\tilde U=\langle 0,1.5I_2\rangle_Z\)。这时诊断仍然成功，但完成时间从 \(k=2\) 推迟到 \(k=3\)。这个结果很关键，因为它揭示了本文方法的真实收益边界：增益优化确实能增强集合分离，但输入激励幅值仍然直接影响分离速度。换句话说，论文并没有宣称“增益可以替代输入”，而是证明“在输入受限时，合适的增益能尽量保住诊断能力”。
 
