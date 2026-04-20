@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>基于 Zonotopic Kalman 滤波的离散时间未知输入线性系统区间估计</title>
+  <style>
+body {
+  margin: 0;
+  background: linear-gradient(180deg, #f9f1ec 0%, #f5ece7 100%);
+  color: #2f2323;
+  font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+}
+.wechat-shell {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 36px 18px 72px;
+}
+.wechat-article {
+  background: #fffdfb;
+  border: 1px solid #f0dede;
+  border-radius: 26px;
+  box-shadow: 0 18px 54px rgba(79, 42, 42, 0.08);
+  padding: 38px 28px 48px;
+}
+.article-title {
+  margin: 0 0 20px;
+  color: #2f2323;
+  text-align: center;
+  font-size: 34px;
+  line-height: 1.38;
+}
+.meta-box {
+  margin: 0 0 26px;
+  padding: 15px 18px;
+  background: #fbf1ec;
+  border-left: 4px solid #fa5151;
+  border-radius: 12px;
+}
+.meta-item {
+  margin: 6px 0;
+  font-size: 15px;
+  line-height: 1.8;
+}
+.meta-label {
+  font-weight: 700;
+  color: #c43f3f;
+}
+h2 {
+  display: table;
+  margin: 34px auto 18px;
+  padding: 7px 18px;
+  background: #fa5151;
+  color: #fff;
+  border-radius: 10px;
+  font-size: 24px;
+  line-height: 1.45;
+  font-weight: 800;
+}
+h3 {
+  margin: 24px 0 12px;
+  padding-left: 12px;
+  border-left: 4px solid #fa5151;
+  border-bottom: 1px dashed rgba(250,81,81,0.38);
+  color: #2f2323;
+  font-size: 21px;
+  line-height: 1.5;
+  font-weight: 800;
+}
+h4 {
+  margin: 18px 0 10px;
+  color: #c43f3f;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 800;
+}
+p, li {
+  color: #2f2323;
+  font-size: 16px;
+  line-height: 1.92;
+}
+p {
+  margin: 14px 0;
+}
+ul, ol {
+  margin: 14px 0 20px;
+  padding-left: 22px;
+}
+li {
+  margin: 8px 0;
+}
+blockquote {
+  margin: 18px 0;
+  padding: 12px 16px;
+  background: #fff4ea;
+  border-left: 4px solid #f0a85e;
+  color: #5a4545;
+  border-radius: 12px;
+}
+code {
+  padding: 1px 6px;
+  background: #f7efec;
+  border-radius: 6px;
+  font: 0.92em Menlo, Monaco, monospace;
+  color: #8a3d3d;
+}
+pre {
+  margin: 18px 0;
+  padding: 14px 16px;
+  background: #f7efec;
+  border-radius: 14px;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  font: 14px/1.7 Menlo, Monaco, monospace;
+}
+pre code {
+  padding: 0;
+  background: transparent;
+  color: inherit;
+}
+.image-block {
+  margin: 20px 0;
+  padding: 14px;
+  background: #fffaf8;
+  border: 1px solid #f1dedd;
+  border-radius: 18px;
+}
+.image-block img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+.image-caption {
+  text-align: center;
+}
+.math-block {
+  margin: 18px 0;
+  padding: 12px 14px;
+  background: #fff;
+  border: 1px solid #ecd9d9;
+  border-radius: 16px;
+  text-align: center;
+}
+.research-label {
+  color: #8a5b00;
+  font-weight: 700;
+}
+.research-prompt {
+  display: inline-block;
+  padding: 2px 8px;
+  background: #fff3a3;
+  border-radius: 7px;
+  color: #5c3c00;
+  font-weight: 800;
+  font-style: italic;
+}
+.research-role {
+  display: inline-block;
+  margin-right: 8px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #ffe7a8;
+  color: #7c4b00;
+  font-weight: 800;
+}
+.research-title {
+  display: inline-block;
+  margin-left: 4px;
+  padding: 2px 8px;
+  background: #fff3a3;
+  border-radius: 7px;
+  color: #5c3c00;
+  font-weight: 800;
+  font-style: italic;
+}
+.research-idea {
+  font-style: italic;
+  color: #7a5050;
+}
+.mathjax-wrapper {
+  overflow-x: auto;
+}
+a {
+  color: #b53f3f;
+  text-decoration: none;
+}
+strong {
+  color: #c43f3f;
+}
+hr {
+  margin: 28px 0;
+  border: none;
+  border-top: 1px solid #eadfcb;
+}
+.mjx-container[jax="CHTML"][display="true"] {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 4px 0;
+}
+</style>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body>
+  <div class="wechat-shell">
+    <article class="wechat-article">
+      <h1 class="article-title">基于 Zonotopic Kalman 滤波的离散时间未知输入线性系统区间估计</h1>
+      
+      <figure class="image-block"><img src="__PUBLIC_IMAGE_PREFIX__/header.png" alt="论文抬头：标题与作者" /><div class="image-caption">论文抬头：标题与作者</div></figure>
+<ul>
+<li>作者：Thomas Chevet, Thach Ngoc Dinh, Julien Marzat, Zhenhua Wang, Tarek Raïssi</li><li>关键词：区间观测器；Zonotopic Kalman 滤波；未知输入；离散时间系统；描述符系统</li><li>DOI / 论文链接：https://doi.org/10.1109/LCSYS.2021.3086562</li>
+</ul>
+<h2>1. 研究背景、问题定义与核心思路</h2>
+<h3>1.1 研究动机与关键挑战</h3>
+<p>这篇文章要处理的是<strong>离散时间线性系统里同时存在未知输入、过程扰动和测量噪声</strong>的区间估计问题。传统 unknown-input observer 往往先做一次坐标变换，把未知输入从状态子系统里“剥”出去，再在剩下的部分上做点估计或区间估计。这条路线能用，但代价也很直接：坐标变换一多，误差界会被连续放大，最后得到的上下界往往偏松。</p>
+<p>作者不想再沿着“先解耦、再补偿”的路子走，而是换了一个角度：既然未知输入本来就是系统里真实存在但不可测的量，那就把它直接并到状态里，一起做集合传播。这样做的好处是状态和未知输入被放进同一个可行集合里处理，不需要额外构造一个专门的解耦子系统。</p>
+<p>难点也恰好在这里。把未知输入塞进状态以后，系统不再是普通状态空间模型，而会变成描述符系统；同时，作者还要求在线递推时集合复杂度不能失控，所以不能只会“包住”，还得会“收紧”和“降阶”。</p>
+<h3>1.2 方法框架与核心思路</h3>
+<p>论文从原始离散时间 LTI 模型出发：</p>
+<div class="math-block mathjax-wrapper">$$
+x_{k+1}=Ax_k+Bu_k+Dd_k+D_w w_k,
+$$</div>
+<div class="math-block mathjax-wrapper">$$
+y_k=Cx_k+D_v v_k,
+$$</div>
+<p>其中 \(x_k\) 是状态，\(u_k\) 是已知输入，\(d_k\) 是未知输入，\(w_k,v_k\) 分别是有界过程扰动和测量噪声。</p>
+<p>作者把未知输入当成辅助状态，定义增广向量</p>
+<div class="math-block mathjax-wrapper">$$
+\bar x_k=
+\begin{bmatrix}
+x_k\\
+d_{k-1}
+\end{bmatrix},
+$$</div>
+<p>从而把系统改写为描述符形式</p>
+<div class="math-block mathjax-wrapper">$$
+E\bar x_{k+1}=\bar A \bar x_k+\bar B u_k+\bar D_w w_k,
+\qquad
+y_k=\bar C\bar x_k+D_v v_k,
+$$</div>
+<p>其中</p>
+<div class="math-block mathjax-wrapper">$$
+E=
+\begin{bmatrix}
+I &amp; -D\\
+0 &amp; 0
+\end{bmatrix},\quad
+\bar A=
+\begin{bmatrix}
+A &amp; 0\\
+0 &amp; 0
+\end{bmatrix},\quad
+\bar B=
+\begin{bmatrix}
+B\\
+0
+\end{bmatrix},
+$$</div>
+<div class="math-block mathjax-wrapper">$$
+\bar D_w=
+\begin{bmatrix}
+D_w\\
+0
+\end{bmatrix},\qquad
+\bar C=
+\begin{bmatrix}
+C &amp; 0
+\end{bmatrix}.
+$$</div>
+<p>后面的估计流程是标准的“预测 + 校正”两步，但对象从单点状态变成了 zonotope。先利用系统动力学把上一步的增广可行集推进到下一时刻，再利用输出约束把这个集合压紧，最后从 zonotope 的中心和生成矩阵里直接读出状态与未知输入的上下界。</p>
+<h3>1.3 主要创新点</h3>
+<p>这篇文章最重要的贡献，不是又给未知输入观测器加了一层几何包装，而是把<strong>未知输入区间估计</strong>和<strong>zonotopic Kalman filter</strong>真正接到了同一个递推框架里。增广描述符建模是这件事的核心，因为它避免了多次坐标变换带来的精度损失，也让状态和未知输入共享同一个可行集合。</p>
+<p>另一个很实用的点，是作者没有停留在“理论上能收紧”这一层，而是给了一个可计算的最小外包选择准则。原始 ZKF 文献更偏向最小体积准则，这里改成了生成矩阵 Frobenius 范数最小化。它未必最紧，但在线算起来更轻，论文也明确承认这是在保守性和计算量之间做折中。</p>
+<p>最后，多输出情形没有被留作一句“可类似处理”。作者把它明确写成了递推算法，说明这篇工作不是只想给单输出情形补一个 theorem，而是想让这套区间估计流程真能落到实现上。</p>
+<h2>2. 核心方法与技术主线解析</h2>
+<h3>2.1 整体技术路线</h3>
+<p>整篇文章的技术线其实很清楚：先用秩条件保证描述符系统可以被“解开”，再把增广状态的可行集合写成 zonotope，接着做一次时间传播，最后用输出诱导的 strip 交集把集合压小。</p>
+<p>关键一步是找到矩阵 \(T,N\) 使得</p>
+<div class="math-block mathjax-wrapper">$$
+TE+N\bar C=I.
+$$</div>
+<p>一旦这步成立，描述符系统就能被改写成适合递推的形式：</p>
+<div class="math-block mathjax-wrapper">$$
+\bar x_{k+1}=\xi_k+Ny_{k+1}-ND_v v_{k+1},
+$$</div>
+<div class="math-block mathjax-wrapper">$$
+\xi_k=T\bar A \bar x_k+T\bar B u_k+T\bar D_w w_k.
+$$</div>
+<p>这相当于把“动力学推进”与“输出校正”拆开了。后面所有 zonotope 运算，都是围着这两个式子展开。</p>
+<h3>2.2 关键技术块解析</h3>
+<figure class="image-block"><img src="__PUBLIC_IMAGE_PREFIX__/theorem_1.png" alt="theorem_1：时间更新定理" /><div class="image-caption">theorem_1：时间更新定理</div></figure>
+<p><strong>Theorem 1</strong> 决定了这套方法能不能递推下去。它说明，如果当前时刻的增广状态、过程扰动和测量噪声都分别落在给定 zonotope 里，那么下一时刻的增广状态也一定落在新的 zonotope 里。更重要的是，这个新 zonotope 不是抽象存在，而是直接给了中心和生成矩阵的更新公式：</p>
+<div class="math-block mathjax-wrapper">$$
+\tilde{\mathcal X}_{k+1}=\langle \tilde p_{k+1},\tilde H_{k+1}\rangle,
+$$</div>
+<div class="math-block mathjax-wrapper">$$
+\tilde p_{k+1}=T\bar A \bar p_k+T\bar B u_k+N y_{k+1},
+$$</div>
+<div class="math-block mathjax-wrapper">$$
+\tilde H_{k+1}=
+\left[
+T\bar A\,\downarrow_q \bar H_k,\;
+T\bar D_w W,\;
+-ND_v V
+\right].
+$$</div>
+<p>这里的意思很直接。旧集合的生成矩阵先经由 \(T\bar A\) 做线性传播，再叠加扰动和噪声带来的不确定性方向；\(\downarrow_q\) 则负责把生成矩阵维数压回可控范围。这个降阶操作不是附属技巧，而是整个算法能否长期在线运行的关键。</p>
+<p>光有时间传播还不够，因为 \(\tilde{\mathcal X}_{k+1}\) 只是“按动力学推出来的可能集合”，还没有把最新输出真正用进去。于是作者再把输出约束写成 strip 交：</p>
+<div class="math-block mathjax-wrapper">$$
+F(k)=\bigcap_{i=1}^{n_y} F_i(k),
+$$</div>
+<div class="math-block mathjax-wrapper">$$
+F_i(k)=
+\left\{
+x\in\mathbb R^{n_x+n_d}\; \middle|\;
+\left|\bar C_i x-y_i(k)\right|
+\le (|D_v|v_+)_{i}
+\right\}.
+$$</div>
+<p>这一层的作用是把“所有和测量相容的状态”挑出来。真正的 feasible state set，就藏在时间传播得到的 zonotope 和这些 strip 的交集里。</p>
+<figure class="image-block"><img src="__PUBLIC_IMAGE_PREFIX__/theorem_2.png" alt="theorem_2：基于紧条带的外包收缩" /><div class="image-caption">theorem_2：基于紧条带的外包收缩</div></figure>
+<p><strong>Theorem 2</strong> 负责把“zonotope 与 tight strip 的交集”重新包成一个新的 zonotope。论文没有硬算精确交集，而是先构造 tight strip，再从一族候选 zonotope 里挑一个最小的外包。这里最有意思的是选择准则：</p>
+<div class="math-block mathjax-wrapper">$$
+j^\star=\arg\min_{j\in\{0,\dots,r\}} \operatorname{tr}\!\left(T_j(k)T_j(k)^\top\right).
+$$</div>
+<p>作者用生成矩阵的 Frobenius 范数来度量 zonotope 大小，替代了更贵的体积准则。这个替换很务实。它牺牲了一点几何上的“最紧”，换来每一步都更便宜的在线计算，特别适合区间估计这种要一拍一拍往前推的场景。</p>
+<figure class="image-block"><img src="__PUBLIC_IMAGE_PREFIX__/algorithm_1.png" alt="algorithm_1：多输出情形的外包递推算法" /><div class="image-caption">algorithm_1：多输出情形的外包递推算法</div></figure>
+<p>到了多输出情形，论文把更新顺序写成了 <strong>Algorithm 1</strong>。先用 Theorem 1 做时间更新，再把 \(n_y\) 个 strip 逐个吃进去，每吃进一个就做一次最小 zonotopic outer approximation，最后得到 \(\bar{\mathcal X}_k\)。这种“逐输出收紧”的写法很自然，也解释了为什么作者没有直接对 \(\tilde{\mathcal X}_k\cap F(k)\) 做一次性处理：一次做完当然更理想，但计算代价会立刻失控。</p>
+<p>有了最终 zonotope \(\bar{\mathcal X}_k=\langle \bar p_k,\bar H_k\rangle\) 以后，区间上下界就能直接读出来：</p>
+<div class="math-block mathjax-wrapper">$$
+\bar x_l(k)=\bar p_k-|\bar H_k|\mathbf 1,\qquad
+\bar x_u(k)=\bar p_k+|\bar H_k|\mathbf 1.
+$$</div>
+<p>这一步把集合估计重新落回了区间估计，也把未知输入 \(d_k\) 和系统状态 \(x_k\) 放到了同一套上下界表达里。</p>
+<h2>3. 仿真结果与对比分析</h2>
+<h3>3.1 仿真设置与对比对象</h3>
+<p>论文用一个三维离散时间 LTI 系统做数值验证，同时比较了两条基线：一条是文献 [6] 中基于 successive changes of coordinates 的区间观测器，另一条是文献 [21] 中基于不确定性传播的点值观测器。过程噪声和测量噪声都被设为有界随机信号，未知输入取 \(d(k)=0.3\sin(0.05k)\)，时间更新的降阶阶数取 \(q=20\)。</p>
+<p>作者没有把 \(T,N\) 再做优化，而是直接取了一个简单选择。这一点反而让后面的结果更好解读，因为仿真展示的是“基本框架本身能做到什么”，而不是靠精调参数把结果堆出来。</p>
+<h3>3.2 主要结果与对比说明</h3>
+<figure class="image-block"><img src="__PUBLIC_IMAGE_PREFIX__/figure_1.png" alt="figure_1：状态区间对比" /><div class="image-caption">figure_1：状态区间对比</div></figure>
+<p><strong>Fig. 1</strong> 给的是三个状态分量的上下界对比。黑线是真实状态，红色虚线是本文方法，绿色点划线来自 [6]，蓝色点划线来自 [21]。图上最稳定的现象是：本文给出的区间明显比 [6] 更窄，三条状态上都能看出来；和 [21] 相比，两者贴得很近，没有出现谁把谁彻底压下去的情况。这和作者的立场一致，他们并没有声称“全面优于 [21]”，而是说在不做额外调参时已经能做到同一量级。</p>
+<figure class="image-block"><img src="__PUBLIC_IMAGE_PREFIX__/figure_2.png" alt="figure_2：未知输入区间对比" /><div class="image-caption">figure_2：未知输入区间对比</div></figure>
+<p><strong>Fig. 2</strong> 把比较对象换成了未知输入 \(d(k)\)。这里结论和状态估计基本一致：本文方法给出的红色界比 [6] 的绿色界紧得多，但和 [21] 的蓝色界仍然相当接近。对这篇文章来说，这个结果很重要，因为它说明增广描述符建模并没有只改善状态界，而是真的把未知输入也一起估准了。</p>
+<figure class="image-block"><img src="__PUBLIC_IMAGE_PREFIX__/table_1.png" alt="table_1：平均估计界宽度比较" /><div class="image-caption">table_1：平均估计界宽度比较</div></figure>
+<p><strong>Table I</strong> 把图上的直观印象压成了数值。对比 [6]，本文方法的平均界宽从 \((0.6021, 0.7428, 0.6831, 1.4273)\) 显著降到 \((0.1856, 0.2924, 0.2894, 0.5119)\)，这一点没有悬念。和 [21] 相比，结果更细一点：在 \(x_2,x_3\) 上本文略优于 [21]，在 \(x_1\) 和未知输入 \(d\) 上略逊一丝，但差距都很小。作者最后补了一句很诚实的话：这里的 \(T,N\) 只是随手选的，如果继续调，本文方法还有机会把这点差距再压下去。</p>
+<h2>4. 后续研究方向</h2>
+<ol>
+<li>如果你刚开始读这篇文章 先别急着盯 Theorem 2，先把增广描述符模型、式子里的两步更新逻辑，以及 Theorem 1 的时间传播顺着推一遍，这篇文章就已经读通一半了。 <em>建议先抓住：zonotope 的仿射变换、Minkowski 和、降阶算子这三件基础工具，先单独写清楚，再回来看上下界是怎么从 \(\bar p_k,\bar H_k\) 里读出来的。</em> 数学推导难度：中等</li><li>如果你想继续往下深挖 真正容易长出新 idea 的地方，其实是 \(T,N\) 的选取和 “最小体积” 对 “Frobenius 范数” 这两种收缩准则的差别，不只是把 Theorem 2 再证明一遍。 <em>建议重点想：把不同 \(T,N\) 设计下的界宽、计算量和保守性并排比较，再问哪些系统上 Frobenius 准则会明显偏保守。</em> 数学推导难度：较高</li><li>如果你要带学生做这条线 比较稳妥的拆法是先让学生复现图和表，再让他替换不同的 \(T,N\) 设计，最后把系统从定常 LTI 扩到 LPV、时变描述符或带攻击输入的情形。 <em>建议这样带：阅读顺序按“会传播 zonotope、会做 strip 收紧、会解释界宽变化”三步走，这样学生不容易一开始就被描述符符号和集合几何同时卡住。</em> 数学推导难度：高</li>
+</ol>
+<h2>5. 总结与评价</h2>
+<p>这篇文章的核心赌注很明确：把未知输入并进增广状态，再用 zonotopic Kalman filter 的预测-校正框架去做区间估计，可以避免传统解耦路线带来的额外松弛。仿真结果基本支持这个判断，尤其是相对 [6] 的界宽收缩非常明显。它真正有价值的地方，是把状态和未知输入放进了同一套递推集合里统一处理。局限也很清楚：秩条件、噪声有界假设以及 \(T,N\) 的人为选择都会直接影响最终界宽，而论文只在一个小规模 LTI 例子上做了展示，离更一般的时变或强不确定场景还有距离。</p>
+    </article>
+  </div>
+</body>
+</html>
