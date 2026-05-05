@@ -1,6 +1,6 @@
 # 基于约束 Zonotope 的 LPV 系统主动故障诊断
 
-![论文抬头：标题与作者](images/header_title_authors.png)
+![论文抬头：标题与作者](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@b9cd8fb0c3a1d7fdb568d5a0ade2947ab2d6ddb6/active-fault-diagnosis-for-lpv-systems-based-on-constrained-zonotopes/images/header_title_authors.png)
 
 - 关键词：主动故障诊断；LPV 系统；辅助输入；约束 zonotope；集合值观测器；混合整数二次规划；在线更新
 - DOI / 论文链接：https://doi.org/10.1109/TAC.2024.3401271
@@ -16,6 +16,8 @@
 
 论文考虑离散时间 LPV 多模式系统：
 
+
+
 $$
 \begin{aligned}
 x^\iota(k+1)
@@ -29,26 +31,40 @@ C^\iota x^\iota(k)+F^\iota v(k),
 \end{aligned}
 $$
 
+
+
 其中 $\iota\in\mathcal M=\{0,1,\ldots,n_s\}$ 是模式标签，$\iota=0$ 表示正常模式，其余标签表示不同故障模式。$w(k)$ 和 $v(k)$ 是未知但有界的过程扰动与测量噪声，调度参数 $\rho(k)$ 当前值可得，未来值只知道落在由参数边界与变化率边界诱导出的集合中。
 
 约束 zonotope 写作
+
+
 
 $$
 \mathcal Z=\{\varpi+\Xi\xi:\|\xi\|_\infty\le 1,\ \Pi\xi=\eta\}.
 $$
 
+
+
 它比普通 zonotope 多了线性等式约束 $\Pi\xi=\eta$，能保留更多集合结构。论文用它描述 $x^\iota(0)$、$w(k)$、$v(k)$，再推导 LPV 系统在不确定调度参数下的未来状态集合 $\mathcal X^\iota_{1:N|k}$ 与输出集合 $\mathcal Y^\iota_{1:N|k}$。辅助输入的核心条件是
+
+
 
 $$
 \mathcal Y^\iota_{1:N|k}\cap \mathcal Y^\kappa_{1:N|k}=\emptyset,\qquad
 \iota,\kappa\in\mathcal M,\ \iota\ne\kappa.
 $$
 
+
+
 在这个条件下，真实输出序列若只属于一个候选模式的输出集合，就能确定当前模式。作者同时最小化输入能量
+
+
 
 $$
 J(u)=\sum_{i=0}^{N-1}u(i|k)^T R u(i|k),
 $$
+
+
 
 并加入输入约束与输出安全约束，避免辅助信号为了“激发故障差异”而损害系统运行。
 
@@ -65,13 +81,19 @@ $$
 
 未来调度参数集合先由当前值和变化率集合递推得到：
 
+
+
 $$
 \tilde{\mathcal P}_{i|k}=\mathcal P_{i-1|k}+d\mathcal P,\qquad
 \hat{\mathcal P}_{i|k}=\tilde{\mathcal P}_{i|k}\cap\mathcal P,\qquad
 \mathcal P_{i|k}=\operatorname{Zo}(\hat{\mathcal P}_{i|k}).
 $$
 
+
+
 由于系统矩阵仿射依赖 $\rho(k)$，预测矩阵可写成区间矩阵 $[A^\iota(i|k)]$、$[B^\iota(i|k)]$、$[E^\iota(i|k)]$。在预测时域内，论文使用
+
+
 
 $$
 \begin{aligned}
@@ -86,7 +108,11 @@ C^\iota x^\iota(i|k)+F^\iota v(i|k),
 \end{aligned}
 $$
 
+
+
 并通过迭代得到增广形式：
+
+
 
 $$
 \begin{aligned}
@@ -101,17 +127,25 @@ y^\iota(1:N|k)
 \end{aligned}
 $$
 
+
+
 这组公式是整个方法的骨架：只有先把每个候选模式在未来 $N$ 步的输出集合算出来，后面的集合分离约束和辅助输入优化才有明确对象。
 
 ### 2.2 关键技术块解析
 
 **Lemma 1** 处理的是 CZ 生成矩阵本身为区间矩阵的情况。若
 
+
+
 $$
 \mathcal Z=\{\varpi,[\Xi],\Pi,\eta\},
 $$
 
+
+
 则它可以由 CZ inclusion 外包为
+
+
 
 $$
 \diamond(\mathcal Z)
@@ -127,11 +161,15 @@ $$
 \bar{\Pi}=\left[\Pi\quad 0^{n\times n}\right].
 $$
 
-![Lemma 1：区间生成矩阵下的 CZ inclusion](images/lemma_1.png)
+
+
+![Lemma 1：区间生成矩阵下的 CZ inclusion](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@b9cd8fb0c3a1d7fdb568d5a0ade2947ab2d6ddb6/active-fault-diagnosis-for-lpv-systems-based-on-constrained-zonotopes/images/lemma_1.png)
 
 这一步把区间不确定性转化成额外生成元。它不是精确等价，尤其当 $\Pi\xi=\eta$ 存在时会引入外包保守性；但它让后续集合仍保持 CZ 形式，避免在 LPV 预测中退化为难以操作的一般非线性集合。
 
 **Theorem 1** 把 Lemma 1 推进到状态传播。若 $x(k)\in\mathcal X_k=\{\varpi_{x,k},\Xi_{x,k},\Pi_{x,k},\eta_{x,k}\}$，且 $A(k)\in[A(k)]$，则 $x(k+1)$ 可被 $\mathcal X_{k+1}$ 外包，其中
+
+
 
 $$
 \begin{aligned}
@@ -148,7 +186,11 @@ $$
 \end{aligned}
 $$
 
+
+
 其中
+
+
 
 $$
 \begin{aligned}
@@ -158,11 +200,15 @@ H_{3,k}&=\operatorname{rs}(\operatorname{rad}([A(k)])|\varpi_{x,k}|).
 \end{aligned}
 $$
 
-![Theorem 1：区间系统矩阵作用下的 CZ 状态传播](images/theorem_1.png)
+
+
+![Theorem 1：区间系统矩阵作用下的 CZ 状态传播](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@b9cd8fb0c3a1d7fdb568d5a0ade2947ab2d6ddb6/active-fault-diagnosis-for-lpv-systems-based-on-constrained-zonotopes/images/theorem_1.png)
 
 这个定理的作用很直接：$H_{1,k}$ 传播原有 CZ 生成元，$H_{2,k}$ 覆盖区间矩阵与原生成元相乘带来的不确定性，$H_{3,k}$ 覆盖区间矩阵作用于中心点时产生的附加半径。没有这三个块，LPV 调度参数的未来不确定性无法进入可达集计算。
 
 在 Theorem 1 的基础上，**Proposition 1** 给出整个预测时域内的状态集合与输出集合：
+
+
 
 $$
 \mathcal X^\iota_{1:N|k}
@@ -171,6 +217,10 @@ $$
 \Pi^\iota_{x,1:N|k},\eta^\iota_{x,1:N|k}\},
 $$
 
+
+
+
+
 $$
 \mathcal Y^\iota_{1:N|k}
 =
@@ -178,11 +228,15 @@ $$
 \Pi^\iota_{y,1:N|k},\eta^\iota_{y,1:N|k}\}.
 $$
 
-![Proposition 1：LPV 系统预测状态集合与输出集合](images/proposition_1.png)
+
+
+![Proposition 1：LPV 系统预测状态集合与输出集合](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@b9cd8fb0c3a1d7fdb568d5a0ade2947ab2d6ddb6/active-fault-diagnosis-for-lpv-systems-based-on-constrained-zonotopes/images/proposition_1.png)
 
 这条命题是从集合传播走向主动诊断的接口。它把初始状态、过程扰动、测量噪声、输入序列和调度参数不确定性全部合并到 $\mathcal Y^\iota_{1:N|k}$ 中。后面优化问题只需比较不同 $\iota$ 的输出 CZ 是否相交。
 
 辅助输入优化的关键是把“两个 CZ 不相交”变成可计算条件。**Lemma 2** 定义两个模式输出集合之间的最小平方距离：
+
+
 
 $$
 \begin{aligned}
@@ -202,13 +256,17 @@ $$
 \end{aligned}
 $$
 
-![Lemma 2：输出 CZ 分离与最小距离条件](images/lemma_2.png)
+
+
+![Lemma 2：输出 CZ 分离与最小距离条件](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@b9cd8fb0c3a1d7fdb568d5a0ade2947ab2d6ddb6/active-fault-diagnosis-for-lpv-systems-based-on-constrained-zonotopes/images/lemma_2.png)
 
 结论是 $\mathcal Y^\iota_{1:N|k}\cap\mathcal Y^\kappa_{1:N|k}=\emptyset$ 当且仅当 $\sigma^{\iota,\kappa}(u)>0$。为了获得闭可行域，论文把它替换为 $\sigma^{\iota,\kappa}(u)\ge \bar{\sigma}^{\iota,\kappa}$，其中阈值为给定正数。这样会稍微保守，但只要约束满足，输出集合分离仍然成立。
 
 原问题由此成为双层规划：外层求最小能量输入，内层求两个输出 CZ 的最小距离。论文用 KKT 条件替换内层二次规划，互补约束再用二进制变量和 big-M 线性化。由于 $\Xi^\iota_{y,1:N|k}$ 中含有 $|u(0:N-1|k)|$，作者给了两种处理方式：P1 通过引入 $h_i=|u_i|$ 并对双线性项做 LP 松弛；P2 用 $u_{\max}$ 替换绝对值项，计算更轻但更保守。仿真部分采用的是 P2。
 
 在线更新建立在集合值观测器上。每个时刻先预测，再用真实输出筛选测量一致状态，最后外包二者交集：
+
+
 
 $$
 \hat{\mathcal X}^\iota_k
@@ -218,11 +276,19 @@ A^\iota(k-1)\tilde{\mathcal X}^\iota_{k-1}
 +E^\iota(k-1)\mathcal W,
 $$
 
+
+
+
+
 $$
 \check{\mathcal X}^\iota_k
 =
 \{x^\iota_k:C^\iota x^\iota(k)\in y(k)+(-F^\iota\mathcal V)\},
 $$
+
+
+
+
 
 $$
 \tilde{\mathcal X}^\iota_k
@@ -230,7 +296,9 @@ $$
 \hat{\mathcal X}^\iota_k\cap\check{\mathcal X}^\iota_k.
 $$
 
-![Algorithm 1：LPV 系统主动故障诊断在线更新流程](images/algorithm_1.png)
+
+
+![Algorithm 1：LPV 系统主动故障诊断在线更新流程](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@b9cd8fb0c3a1d7fdb568d5a0ade2947ab2d6ddb6/active-fault-diagnosis-for-lpv-systems-based-on-constrained-zonotopes/images/algorithm_1.png)
 
 Algorithm 1 的选择机制并不盲目重算。若新求得的辅助输入带来更短诊断时域或更小能量，算法才保存并注入新输入；否则继续执行上一轮方案。这个设计让实时输出信息进入诊断，同时避免一次保守外包导致在线更新反而变差。
 
@@ -240,23 +308,27 @@ Algorithm 1 的选择机制并不盲目重算。若新求得的辅助输入带�
 
 离线方案得到的辅助输入为
 
+
+
 $$
 \{1.5699,\ -1.5699,\ -1.57,\ -1.4966\},
 $$
 
+
+
 对应诊断时域为 4 步。由于 4 步输出集合维度为 8，论文用 500 次 Monte Carlo 采样和 t-SNE 把正常模式与故障模式的高维输出映射到二维平面。
 
-![Fig. 2：离线辅助输入下的输出样本分离](images/figure_2.png)
+![Fig. 2：离线辅助输入下的输出样本分离](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@b9cd8fb0c3a1d7fdb568d5a0ade2947ab2d6ddb6/active-fault-diagnosis-for-lpv-systems-based-on-constrained-zonotopes/images/figure_2.png)
 
 Fig. 2 中正常模式与故障模式样本云在二维可视化空间里分离，没有重叠。这说明求得的辅助输入确实能把两种模式的输出响应拉开。t-SNE 只用于可视化，不是诊断算法本身；真正的诊断保证仍来自输出 CZ 的集合分离约束。
 
 在线更新的效果由 10 次 Monte Carlo 实验给出。初始时刻仍使用离线求得的 4 步输入，但在 $k=1$ 后利用实时输出重新估计状态并重算输入。
 
-![Table I：在线更新方案的 10 次 Monte Carlo 结果](images/table_1.png)
+![Table I：在线更新方案的 10 次 Monte Carlo 结果](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@b9cd8fb0c3a1d7fdb568d5a0ade2947ab2d6ddb6/active-fault-diagnosis-for-lpv-systems-based-on-constrained-zonotopes/images/table_1.png)
 
 Table I 的结果很明确：10 次实验的 AFD time 全部为 2。相比离线方案的 4 步，在线更新把诊断时域减半。表中 $k=1$ 列给出了每次重算后的两步输入，说明改进不是单次偶然结果，而是在不同采样扰动下都发生。
 
-![Fig. 3：在线更新下的两步故障诊断过程](images/figure_3.png)
+![Fig. 3：在线更新下的两步故障诊断过程](https://cdn.jsdelivr.net/gh/Eroticoo/zonoieee-zonotope-reading-20260330@b9cd8fb0c3a1d7fdb568d5a0ade2947ab2d6ddb6/active-fault-diagnosis-for-lpv-systems-based-on-constrained-zonotopes/images/figure_3.png)
 
 Fig. 3 展示了一次在线诊断过程。在 $k=1$ 时，真实输出点仍同时落在正常模式与故障模式输出集合内，不能判定模式；利用该输出更新状态集合后，算法重算辅助输入。到 $k=2$ 时，真实输出只位于故障模式输出集合中，诊断完成。这个例子支撑了论文关于“实时输出能降低保守性”的主张，但证据范围仍有限：仿真只覆盖一个数值模型，和已有 LPV AFD 方法的比较主要是定性论证，复杂系统上的 MIQP 求解成本还需要更系统的评估。
 
